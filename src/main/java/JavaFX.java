@@ -29,6 +29,10 @@ public class JavaFX extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("I'm a professional Weather App!");
 		ArrayList<Period> forecast = WeatherAPI.getForecast("LOT",77,70);
+		double Lat = 41.87;
+		double Long = -87.65;
+		ArrayList<Period> points = MyWeatherAPI.getPointForecast(Lat,Long);
+
 		if (forecast == null){
 			throw new RuntimeException("Forecast did not load");
 		}
@@ -40,16 +44,19 @@ public class JavaFX extends Application {
 		rainChance = new Label();
 
 		//Scene 1 Label Set Text
-		temperature.setText("Today's weather is: "+String.valueOf(forecast.get(0).temperature));
-		weather.setText(forecast.get(0).shortForecast);
+		temperature.setText("Today's weather is: "+String.valueOf(points.get(0).temperature));
+        weather.setText(points.get(0).shortForecast);
 		city.setText("Chicago IL");
 		title.setText("Weather App");
-		rainChance.setText("The chance of rain is " +String.valueOf(forecast.get(0).probabilityOfPrecipitation.value)+"%");
+		rainChance.setText("The chance of rain is " +String.valueOf(points.get(0).probabilityOfPrecipitation.value)+"%");
 
 		//Scene 1 Text Field
 		searchField = new TextField();
 		searchField.setPromptText("Search for a city...");
 		searchField.setMinWidth(500);
+		searchField.setOnAction(e -> {
+			city.setText(searchField.getText());
+		});
 
 		//Scene 1 Buttons
 		homeBtn = new Button("Home");
