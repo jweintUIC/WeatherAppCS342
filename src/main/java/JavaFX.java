@@ -29,9 +29,7 @@ public class JavaFX extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("I'm a professional Weather App!");
 		ArrayList<Period> forecast = WeatherAPI.getForecast("LOT",77,70);
-		double Lat = 41.87;
-		double Long = -87.65;
-		ArrayList<Period> points = MyWeatherAPI.getPointForecast(Lat,Long);
+		ArrayList<Period> points = MyWeatherAPI.getPointForecast("Chicago");
 
 		if (forecast == null){
 			throw new RuntimeException("Forecast did not load");
@@ -46,7 +44,7 @@ public class JavaFX extends Application {
 		//Scene 1 Label Set Text
 		temperature.setText("Today's weather is: "+String.valueOf(points.get(0).temperature));
         weather.setText(points.get(0).shortForecast);
-		city.setText("Chicago IL");
+		city.setText(MyWeatherAPI.cityName);
 		title.setText("Weather App");
 		rainChance.setText("The chance of rain is " +String.valueOf(points.get(0).probabilityOfPrecipitation.value)+"%");
 
@@ -55,7 +53,21 @@ public class JavaFX extends Application {
 		searchField.setPromptText("Search for a city...");
 		searchField.setMinWidth(500);
 		searchField.setOnAction(e -> {
-			city.setText(searchField.getText());
+			ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(searchField.getText());
+			if (newCity == null) {
+				city.setText("City not found");
+				temperature.setVisible(false);
+				weather.setVisible(false);
+				rainChance.setVisible(false);
+			} else {
+			city.setText(MyWeatherAPI.cityName);
+			temperature.setVisible(true);
+			weather.setVisible(true);
+			rainChance.setVisible(true);
+			temperature.setText("Today's weather is: " + String.valueOf(newCity.get(0).temperature));
+			weather.setText(newCity.get(0).shortForecast);
+			rainChance.setText("The chance of rain is " + String.valueOf(newCity.get(0).probabilityOfPrecipitation.value) + "%");
+			}
 		});
 
 		//Scene 1 Buttons
