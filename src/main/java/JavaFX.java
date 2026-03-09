@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import weather.Period;
 import weather.WeatherAPI;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class JavaFX extends Application {
 	BorderPane s1bp;
 	VBox infoBox, sideBar, fullVbox;
 	HBox s1hb, topBar;
-	Label title, city, rainChance, temperature,weather;
+	Label title, city, rainChance, temperature, weather, loading;
 	Button homeBtn, forecastBtn;
 	public static void main(String[] args) {
 		launch(args);
@@ -40,6 +42,8 @@ public class JavaFX extends Application {
 		city = new Label();
 		title = new Label();
 		rainChance = new Label();
+		loading = new Label();
+		loading.setVisible(false);
 
 		//Scene 1 Label Set Text
 		temperature.setText("Today's weather is: "+String.valueOf(points.get(0).temperature));
@@ -47,6 +51,7 @@ public class JavaFX extends Application {
 		city.setText(MyWeatherAPI.cityName);
 		title.setText("Weather App");
 		rainChance.setText("The chance of rain is " +String.valueOf(points.get(0).probabilityOfPrecipitation.value)+"%");
+		loading.setText("Now Loading");
 
 		//Scene 1 Text Field
 		searchField = new TextField();
@@ -79,7 +84,7 @@ public class JavaFX extends Application {
 		topBar.setPadding(new Insets(10));
 		sideBar = new VBox(5,homeBtn,forecastBtn);
 		sideBar.setPadding(new Insets(10));
-		infoBox = new VBox(20,city, temperature, weather,rainChance);
+		infoBox = new VBox(20,city, temperature, weather, rainChance,loading);
 		s1hb = new HBox(200,sideBar, infoBox);
 		s1bp = new BorderPane();
 		fullVbox = new VBox (20, topBar,s1hb);

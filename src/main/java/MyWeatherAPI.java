@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MyWeatherAPI extends WeatherAPI {
-
+    //this is up here so it can be accessed outside the class
     public static String cityName = "";
 
     public static ArrayList<Period> getPointForecast(double lat, double lon) {
@@ -25,13 +25,11 @@ public class MyWeatherAPI extends WeatherAPI {
                     .followRedirects(HttpClient.Redirect.ALWAYS)
                     .build()
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(response.body());
-            JsonNode props = root.get("properties");
-            String region = props.get("gridId").asText();
-            int gridX = props.get("gridX").asInt();
-            int gridY = props.get("gridY").asInt();
+            ObjectMapper om = new ObjectMapper();
+            JsonNode root = om.readTree(response.body());
+            String region = root.get("properties").get("gridId").asText();
+            int gridX = root.get("properties").get("gridX").asInt();
+            int gridY = root.get("properties").get("gridY").asInt();
 
             return WeatherAPI.getForecast(region, gridX, gridY);
 
@@ -51,26 +49,29 @@ public class MyWeatherAPI extends WeatherAPI {
             HttpResponse<String> geoResponse = HttpClient.newHttpClient()
                     .send(geoRequest, HttpResponse.BodyHandlers.ofString());
 
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(geoResponse.body());
+            ObjectMapper om = new ObjectMapper();
+            JsonNode root = om.readTree(geoResponse.body());
             JsonNode results = root.get("results");
 
-            JsonNode result = null;
+            JsonNode city = null;
 
+            //This is to make sure it is a US city as our weatherAPI only collects from the US
             for (JsonNode r : results) {
                 if (r.get("country_code").asText().equals("US")) {
-                    result = r;
+                    city = r;
                     break;
                 }
             }
 
-            if (result == null) {
+            if (city == null) {
                 System.err.println("Failed to parse JSon");
                 return null;
             }
-            cityName= result.get("name").asText() + ", " + result.get("admin1").asText() + " ";
-            double lat = result.get("latitude").asDouble();
-            double lon = result.get("longitude").asDouble();
+            //Gets the offical city name so format is the same
+            //for example corrects inputted "NYC" to "New York, New York"
+            cityName= city.get("name").asText() + ", " + city.get("admin1").asText() + " ";
+            double lat = city.get("latitude").asDouble();
+            double lon = city.get("longitude").asDouble();
 
             return getPointForecast(lat, lon);
 
