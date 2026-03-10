@@ -88,6 +88,8 @@ public class Controller implements  Initializable{
 				temperature.setVisible(false);
 				weather.setVisible(false);
 				rainChance.setVisible(false);
+                tmrWeather.setVisible(false);
+                tmrWeatherForecast.setVisible(false);
 			} else {
                 city.setText(MyWeatherAPI.cityName);
                 temperature.setVisible(true);
