@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class MyWeatherAPI extends WeatherAPI {
     //this is up here so it can be accessed outside the class
     public static String cityName = "";
+    public static String timeZone = "";
 
     public static ArrayList<Period> getPointForecast(double lat, double lon) {
 
@@ -30,6 +31,9 @@ public class MyWeatherAPI extends WeatherAPI {
             String region = root.get("properties").get("gridId").asText();
             int gridX = root.get("properties").get("gridX").asInt();
             int gridY = root.get("properties").get("gridY").asInt();
+            System.out.println(region);
+            System.out.println(gridX);
+            System.out.println(gridY);
 
             return WeatherAPI.getForecast(region, gridX, gridY);
 
@@ -70,6 +74,7 @@ public class MyWeatherAPI extends WeatherAPI {
             //Gets the offical city name so format is the same
             //for example corrects inputted "NYC" to "New York, New York"
             cityName= city.get("name").asText() + ", " + city.get("admin1").asText() + " ";
+            timeZone = city.get("timezone").asText();
             double lat = city.get("latitude").asDouble();
             double lon = city.get("longitude").asDouble();
 

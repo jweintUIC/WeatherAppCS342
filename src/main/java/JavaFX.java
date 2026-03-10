@@ -103,7 +103,7 @@ public class JavaFX extends Application {
 					.getResource("/FXML/TodayForecast.fxml"));
 
 			primaryStage.setTitle("342 Prject 2 Weather App");
-			Scene s1 = new Scene(root, 500,500);
+			Scene s1 = new Scene(root, 380,780);
 
 
 			primaryStage.setScene(s1);
