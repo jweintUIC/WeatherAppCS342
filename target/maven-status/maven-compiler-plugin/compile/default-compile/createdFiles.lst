@@ -5,5 +5,6 @@ MyWeatherAPI.class
 weather\WeatherAPI.class
 JavaFX.class
 weather\Period.class
+Controller.class
 weather\ProbabilityOfPrecipitation.class
 weather\Root.class
