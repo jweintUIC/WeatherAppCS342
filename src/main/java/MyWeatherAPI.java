@@ -13,6 +13,7 @@ public class MyWeatherAPI extends WeatherAPI {
     //this is up here so it can be accessed outside the class
     public static String cityName = "";
     public static String timeZone = "";
+    public static ArrayList<Period> lastForecast = null;
 
     public static ArrayList<Period> getPointForecast(double lat, double lon) {
 

@@ -109,7 +109,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tmrWeatherForecast" prefWidth="300.0" text="Detailed Forcast" textFill="WHITE" wrapText="true">
+                        <Label fx:id="tmrWeatherForecast" alignment="CENTER" prefWidth="300.0" text="Detailed Forcast" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -120,6 +120,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" mnemonicParsing="false" prefHeight="174.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" onAction="#switchSeneFuture" mnemonicParsing="false" prefHeight="174.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
    </children>
 </AnchorPane>

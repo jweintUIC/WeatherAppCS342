@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="790.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0">
+               <children>
+                  <VBox prefHeight="164.0" prefWidth="381.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="96.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Images/arrowleft.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Today's" textOverrun="CLIP">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Forecast">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="cityInput" alignment="TOP_CENTER" onAction="#searchMethodFuture" prefHeight="25.0" prefWidth="350.0" promptText="Enter a City Name Here" />
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" style="-fx-background-color: #9b6b6b;" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0" style="-fx-background-color: #9b6b6b;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="327.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD1" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT1" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT1" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS1" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC1" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD2" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT2" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT2" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS2" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC2" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD3" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT3" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT3" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS3" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC3" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0" style="-fx-background-color: #9b6b6b;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD4" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT4" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT4" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS4" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC4" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD5" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT5" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT5" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS5" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC5" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
+                     <children>
+                        <Label fx:id="FTRD6" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/sun.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRMT6" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/moon.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRNT6" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/wind.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRWS6" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Images/rain.png" />
+                                 </image></ImageView>
+                              <Label fx:id="FTRRC6" text="55F" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSeneToday" prefHeight="164.0" prefWidth="106.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+   </children>
+</AnchorPane>
