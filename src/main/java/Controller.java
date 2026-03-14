@@ -146,6 +146,8 @@ public class Controller implements  Initializable{
                 temperature.setVisible(true);
                 weather.setVisible(true);
                 rainChance.setVisible(true);
+                tmrWeather.setVisible(true);
+                tmrWeatherForecast.setVisible(true);
                 temperature.setText(String.valueOf(newCity.get(0).temperature)+"F");
                 weather.setText(newCity.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(newCity.get(0).probabilityOfPrecipitation.value) + "%");
