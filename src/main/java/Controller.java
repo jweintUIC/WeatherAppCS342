@@ -33,6 +33,9 @@ public class Controller implements  Initializable{
 //		loading = new Label();
 //		loading.setVisible(false);
     @FXML
+    private Label testTimeTemperature;
+
+    @FXML
     private Label weather;
 
     @FXML
@@ -79,8 +82,10 @@ public class Controller implements  Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
+        ArrayList<Period> pointsHourly = MyWeatherAPI.lastForecast;
         if (points == null) {
             points = MyWeatherAPI.getPointForecast("Chicago");
+            pointsHourly = MyWeatherAPI.getPointForecastHourly("Chicago");
             MyWeatherAPI.lastForecast = points;
         }
         if (city != null) {
@@ -95,6 +100,9 @@ public class Controller implements  Initializable{
             } else {
                 tmrWeather.setText("Tonight's Weather in " + city.getText() + "Will Be: ");
             }
+            int temperatureSixAM = 0;
+            temperatureSixAM = points.get(1).temperature;
+            testTimeTemperature.setText("6AM: " + pointsHourly.toArray().length);
             tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
         if (FTRD1!= null) {
