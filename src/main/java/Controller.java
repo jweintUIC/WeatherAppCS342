@@ -83,6 +83,7 @@ public class Controller implements  Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
+        //test commit
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
         if (points == null) {
