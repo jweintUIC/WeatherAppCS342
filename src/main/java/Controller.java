@@ -78,8 +78,10 @@ public class Controller implements  Initializable{
     private Label FTRRC1,FTRRC2,FTRRC3,FTRRC4,FTRRC5,FTRRC6;
     @FXML
     private Label FtrForecastCity;
-
-
+    @FXML
+    private Label dailyTimeOne, dailyTimeTwo, dailyTimeThree, dailyTimeFour, dailyTimeFive, dailyTimeSix;
+    @FXML
+    private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
@@ -102,9 +104,30 @@ public class Controller implements  Initializable{
             } else {
                 tmrWeather.setText("Tonight's Weather in " + city.getText() + "Will Be: ");
             }
-            int temperatureSixAM = 0;
-            temperatureSixAM = points.get(1).temperature;
-            testTimeTemperature.setText("6AM: " + pointsHourly.toArray().length);
+
+            String dailyTimes[] = {"", "", "", "", "", ""};
+            int dailyTimesIndex = 0;
+            int dailyTemps[] = {0, 0, 0, 0, 0, 0};
+            int dailyTempsIndex = 0;
+
+            for (int i = 1; i < 16; i += 3) {
+
+                if (pointsHourly.get(i).endTime.getHours() == 0) {
+                    dailyTimes[dailyTimesIndex] = "12AM";
+                } else if (pointsHourly.get(i).endTime.getHours() == 12) {
+                    dailyTimes[dailyTimesIndex] = "12PM";
+                } else if (pointsHourly.get(i).endTime.getHours() > 12) {
+                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() - 12 + "PM";
+                } else {
+                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() + "AM";
+                }
+                dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
+
+                dailyTimesIndex++;
+                dailyTempsIndex++;
+            }
+
+            testTimeTemperature.setText(dailyTimes[0] + ": " + dailyTemps[0]);
             tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
         if (FTRD1!= null) {
