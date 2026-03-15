@@ -1,3 +1,4 @@
+import weather.HourlyPeriod;
 import weather.Period;
 import weather.WeatherAPI;
 import java.net.URI;
@@ -14,6 +15,7 @@ public class MyWeatherAPI extends WeatherAPI {
     public static String cityName = "";
     public static String timeZone = "";
     public static ArrayList<Period> lastForecast = null;
+    public static ArrayList<HourlyPeriod> lastForecastHourly = null;
 
     public static ArrayList<Period> getPointForecast(double lat, double lon) {
 
@@ -87,7 +89,7 @@ public class MyWeatherAPI extends WeatherAPI {
         return null;
     }
 
-    public static ArrayList<Period> getPointForecastHourly(double lat, double lon) {
+    public static ArrayList<HourlyPeriod> getPointForecastHourly(double lat, double lon) {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.weather.gov/points/" + lat + "," + lon))
@@ -117,7 +119,7 @@ public class MyWeatherAPI extends WeatherAPI {
         return null;
     }
 
-    public static ArrayList<Period> getPointForecastHourly(String locationName) {
+    public static ArrayList<HourlyPeriod> getPointForecastHourly(String locationName) {
         try {
             HttpRequest geoRequest = HttpRequest.newBuilder()
                     .uri(URI.create("https://geocoding-api.open-meteo.com/v1/search?name=" +

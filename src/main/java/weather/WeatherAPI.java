@@ -29,7 +29,7 @@ public class WeatherAPI {
         return r.properties.periods;
     }
 
-    public static ArrayList<Period> getHourlyForecast(String region, int gridx, int gridy) {
+    public static ArrayList<HourlyPeriod> getHourlyForecast(String region, int gridx, int gridy) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.weather.gov/gridpoints/"+region+"/"+String.valueOf(gridx)+","+String.valueOf(gridy)+"/forecast/hourly"))
                 .build();
@@ -44,7 +44,7 @@ public class WeatherAPI {
             System.err.println("Failed to parse JSon");
             return null;
         }
-        return r.properties.periods;
+        return r.hourlyProperties.periods;
     }
 
     public static Root getObject(String json){

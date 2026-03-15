@@ -6,6 +6,8 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import weather.HourlyPeriod;
 import weather.Period;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,7 +84,7 @@ public class Controller implements  Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
-        ArrayList<Period> pointsHourly = MyWeatherAPI.lastForecast;
+        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
         if (points == null) {
             points = MyWeatherAPI.getPointForecast("Chicago");
             pointsHourly = MyWeatherAPI.getPointForecastHourly("Chicago");

@@ -1,7 +1,11 @@
+weather\HourlyPeriod.class
 MyWeatherAPI.class
 weather\Period.class
+weather\Dewpoint.class
 weather\Elevation.class
 weather\Geometry.class
+weather\HourlyProperties.class
+weather\RelativeHumidity.class
 weather\Properties.class
 weather\WeatherAPI.class
 JavaFX.class
