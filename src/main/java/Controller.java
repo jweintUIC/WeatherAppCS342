@@ -34,8 +34,6 @@ public class Controller implements  Initializable{
 //		rainChance = new Label();
 //		loading = new Label();
 //		loading.setVisible(false);
-    @FXML
-    private Label testTimeTemperature;
 
     @FXML
     private Label weather;
@@ -110,8 +108,7 @@ public class Controller implements  Initializable{
             int dailyTemps[] = {0, 0, 0, 0, 0, 0};
             int dailyTempsIndex = 0;
 
-            for (int i = 1; i < 16; i += 3) {
-
+            for (int i = 0; i <= 15; i += 3) {
                 if (pointsHourly.get(i).endTime.getHours() == 0) {
                     dailyTimes[dailyTimesIndex] = "12AM";
                 } else if (pointsHourly.get(i).endTime.getHours() == 12) {
@@ -127,7 +124,20 @@ public class Controller implements  Initializable{
                 dailyTempsIndex++;
             }
 
-            testTimeTemperature.setText(dailyTimes[0] + ": " + dailyTemps[0]);
+            dailyTimeOne.setText(dailyTimes[0]);
+            dailyTimeTwo.setText(dailyTimes[1]);
+            dailyTimeThree.setText(dailyTimes[2]);
+            dailyTimeFour.setText(dailyTimes[3]);
+            dailyTimeFive.setText(dailyTimes[4]);
+            dailyTimeSix.setText(dailyTimes[5]);
+
+            dailyTemperatureOne.setText(dailyTemps[0] + "F");
+            dailyTemperatureTwo.setText(dailyTemps[1] + "F");
+            dailyTemperatureThree.setText(dailyTemps[2] + "F");
+            dailyTemperatureFour.setText(dailyTemps[3] + "F");
+            dailyTemperatureFive.setText(dailyTemps[4] + "F");
+            dailyTemperatureSix.setText(dailyTemps[5] + "F");
+
             tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
         if (FTRD1!= null) {
