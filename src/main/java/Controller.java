@@ -177,13 +177,27 @@ public class Controller implements  Initializable{
     public void searchMethod(ActionEvent e) throws IOException {
             String cityString = cityInput.getText();
 			ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
+            ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(cityString);
+
 			if (newCity == null) {
 				city.setText("City not found");
 				temperature.setVisible(false);
 				weather.setVisible(false);
 				rainChance.setVisible(false);
                 tmrWeather.setVisible(false);
+                dailyTimeOne.setVisible(false);
+                dailyTimeTwo.setVisible(false);
+                dailyTimeThree.setVisible(false);
+                dailyTimeFour.setVisible(false);
+                dailyTimeFive.setVisible(false);
+                dailyTimeSix.setVisible(false);
                 tmrWeatherForecast.setVisible(false);
+                dailyTemperatureOne.setVisible(false);
+                dailyTemperatureTwo.setVisible(false);
+                dailyTemperatureThree.setVisible(false);
+                dailyTemperatureFour.setVisible(false);
+                dailyTemperatureFive.setVisible(false);
+                dailyTemperatureSix.setVisible(false);
 			} else {
                 city.setText(MyWeatherAPI.cityName);
                 temperature.setVisible(true);
@@ -191,6 +205,20 @@ public class Controller implements  Initializable{
                 rainChance.setVisible(true);
                 tmrWeather.setVisible(true);
                 tmrWeatherForecast.setVisible(true);
+                dailyTimeOne.setVisible(true);
+                dailyTimeTwo.setVisible(true);
+                dailyTimeThree.setVisible(true);
+                dailyTimeFour.setVisible(true);
+                dailyTimeFive.setVisible(true);
+                dailyTimeSix.setVisible(true);
+                tmrWeatherForecast.setVisible(true);
+                dailyTemperatureOne.setVisible(true);
+                dailyTemperatureTwo.setVisible(true);
+                dailyTemperatureThree.setVisible(true);
+                dailyTemperatureFour.setVisible(true);
+                dailyTemperatureFive.setVisible(true);
+                dailyTemperatureSix.setVisible(true);
+
                 temperature.setText(String.valueOf(newCity.get(0).temperature)+"F");
                 weather.setText(newCity.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(newCity.get(0).probabilityOfPrecipitation.value) + "%");
@@ -206,6 +234,42 @@ public class Controller implements  Initializable{
                     tmrWeather.setText("Tonight's Weather in "+city.getText()+"Will Be: ");
                 }
                 tmrWeatherForecast.setText(newCity.get(1).temperature+"F with "+newCity.get(1).shortForecast);
+
+                String dailyTimes[] = {"", "", "", "", "", ""};
+                int dailyTimesIndex = 0;
+                int dailyTemps[] = {0, 0, 0, 0, 0, 0};
+                int dailyTempsIndex = 0;
+
+                for (int i = 0; i <= 15; i += 3) {
+                    if (pointsHourly.get(i).endTime.getHours() == 0) {
+                        dailyTimes[dailyTimesIndex] = "12AM";
+                    } else if (pointsHourly.get(i).endTime.getHours() == 12) {
+                        dailyTimes[dailyTimesIndex] = "12PM";
+                    } else if (pointsHourly.get(i).endTime.getHours() > 12) {
+                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() - 12 + "PM";
+                    } else {
+                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() + "AM";
+                    }
+                    dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
+
+                    dailyTimesIndex++;
+                    dailyTempsIndex++;
+                }
+
+                dailyTimeOne.setText(dailyTimes[0]);
+                dailyTimeTwo.setText(dailyTimes[1]);
+                dailyTimeThree.setText(dailyTimes[2]);
+                dailyTimeFour.setText(dailyTimes[3]);
+                dailyTimeFive.setText(dailyTimes[4]);
+                dailyTimeSix.setText(dailyTimes[5]);
+
+                dailyTemperatureOne.setText(dailyTemps[0] + "F");
+                dailyTemperatureTwo.setText(dailyTemps[1] + "F");
+                dailyTemperatureThree.setText(dailyTemps[2] + "F");
+                dailyTemperatureFour.setText(dailyTemps[3] + "F");
+                dailyTemperatureFive.setText(dailyTemps[4] + "F");
+                dailyTemperatureSix.setText(dailyTemps[5] + "F");
+
             }
     }
     public void searchMethodFuture(ActionEvent e) throws IOException {
