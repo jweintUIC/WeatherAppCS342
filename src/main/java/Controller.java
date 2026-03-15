@@ -89,6 +89,7 @@ public class Controller implements  Initializable{
             points = MyWeatherAPI.getPointForecast("Chicago");
             pointsHourly = MyWeatherAPI.getPointForecastHourly("Chicago");
             MyWeatherAPI.lastForecast = points;
+            MyWeatherAPI.lastForecastHourly = pointsHourly;
         }
         if (city != null) {
             time.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("h:mma")));
