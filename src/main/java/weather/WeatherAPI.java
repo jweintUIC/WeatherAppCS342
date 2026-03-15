@@ -37,14 +37,21 @@ public class WeatherAPI {
         try {
             response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {
+                e.printStackTrace();
+        }
+        ObjectMapper om = new ObjectMapper();
+        HourlyRoot r = null;
+        try {
+            r = om.readValue(response.body(), HourlyRoot.class);
+            if(r == null){
+                System.err.println("Failed to parse JSon");
+                return null;
+            }
+            return r.properties.periods;
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        Root r = getObject(response.body());
-        if(r == null){
-            System.err.println("Failed to parse JSon");
-            return null;
-        }
-        return r.hourlyProperties.periods;
+        return null;
     }
 
     public static Root getObject(String json){

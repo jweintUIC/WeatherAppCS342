@@ -5,6 +5,7 @@ weather\Dewpoint.class
 weather\Elevation.class
 weather\Geometry.class
 weather\HourlyProperties.class
+weather\HourlyRoot.class
 weather\RelativeHumidity.class
 weather\Properties.class
 weather\WeatherAPI.class
