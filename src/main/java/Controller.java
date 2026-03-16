@@ -110,11 +110,11 @@ public class Controller implements  Initializable{
             int dailyTempsIndex = 0;
 
             for (int i = 0; i <= 15; i += 3) {
-                if (pointsHourly.get(i).endTime.getHours() == 0) {
+                if (pointsHourly.get(i).startTime.getHours() == 0) {
                     dailyTimes[dailyTimesIndex] = "12AM";
-                } else if (pointsHourly.get(i).endTime.getHours() == 12) {
+                } else if (pointsHourly.get(i).startTime.getHours() == 12) {
                     dailyTimes[dailyTimesIndex] = "12PM";
-                } else if (pointsHourly.get(i).endTime.getHours() > 12) {
+                } else if (pointsHourly.get(i).startTime.getHours() > 12) {
                     dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() - 12 + "PM";
                 } else {
                     dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() + "AM";
