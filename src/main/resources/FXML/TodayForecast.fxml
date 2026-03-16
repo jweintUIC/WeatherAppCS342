@@ -180,6 +180,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" mnemonicParsing="false" onAction="#switchSeneFuture" prefHeight="174.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" mnemonicParsing="false" onAction="#switchSceneFuture" prefHeight="174.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
    </children>
 </AnchorPane>

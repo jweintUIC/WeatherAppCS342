@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -6,7 +5,6 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
 import weather.HourlyPeriod;
 import weather.Period;
 import javafx.event.ActionEvent;
@@ -15,116 +13,68 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import weather.WeatherAPI;
-import java.util.ArrayList;
-import java.util.concurrent.Future;
 
+import java.util.ArrayList;
 
 public class Controller implements  Initializable{
 
-    //		temperature = new Label();
-//		weather = new Label();
-//		city = new Label();
-//		title = new Label();
-//		rainChance = new Label();
-//		loading = new Label();
-//		loading.setVisible(false);
-
-    @FXML
+    @FXML //Short forecast Scene 1
     private Label weather;
 
-    @FXML
+    @FXML //Temperature Scene 1
     private Label temperature;
 
-    @FXML
+    @FXML //City Scene 1
     private Label city;
 
-    @FXML
-    private Label title;
-
-    @FXML
+    @FXML //Rain chance Scene 1
     private Label rainChance;
 
-    @FXML
-    private Label loading;
-
-    @FXML
+    @FXML //Search bar used in both scenes to input new city
     private TextField cityInput;
 
-    @FXML
+    @FXML //Time at top of Scene 1
     private Label time;
 
-    @FXML
-    private Label tmrWeather;
-
-    @FXML
-    private Label tmrWeatherForecast;
-    @FXML //Future Date
+    @FXML //Future Date Scene 2
     private Label FTRD1,FTRD2,FTRD3,FTRD4,FTRD5,FTRD6;
-    @FXML //Future Morning Temp
+
+    @FXML //Future Morning Temp Scene 2
     private Label FTRMT1,FTRMT2,FTRMT3,FTRMT4,FTRMT5,FTRMT6;
-    @FXML //Future Nightime Temp
+
+    @FXML //Future Nightime Temp Scene 2
     private Label FTRNT1,FTRNT2,FTRNT3,FTRNT4,FTRNT5,FTRNT6;
-    @FXML //Future Wind Speed
+
+    @FXML //Future Wind Speed Scene 2
     private Label FTRWS1,FTRWS2,FTRWS3,FTRWS4,FTRWS5,FTRWS6;
-    @FXML //Future Rain Chance
+
+    @FXML //Future Rain Chance Scene 2
     private Label FTRRC1,FTRRC2,FTRRC3,FTRRC4,FTRRC5,FTRRC6;
-    @FXML
+
+    @FXML //In Scene 2 shows city
     private Label FtrForecastCity;
-    @FXML
+
+    @FXML //Hourly Times in Scene 1
     private Label dailyTimeOne, dailyTimeTwo, dailyTimeThree, dailyTimeFour, dailyTimeFive, dailyTimeSix;
-    @FXML
+
+    @FXML //Hourly Temperatures in Scene 1
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
+    //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
+    //Function made to set Scene 1 Values
     public void setValuesTodayForecast() {
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
         temperature.setText(pointsHourly.get(0).temperature +"F");
         weather.setText(pointsHourly.get(0).shortForecast);
         rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
-
-        String dailyTimes[] = {"", "", "", "", "", ""};
-        int dailyTimesIndex = 0;
-        int dailyTemps[] = {0, 0, 0, 0, 0, 0};
-        int dailyTempsIndex = 0;
-
-        for (int i = 0; i <= 15; i += 3) {
-            System.out.println((dailyTimesIndex + 1) + ":" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
-            if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
-                dailyTimes[dailyTimesIndex] = "12AM";
-            } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
-                dailyTimes[dailyTimesIndex] = "12PM";
-            } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
-                dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
-            } else {
-                dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
-            }
-            dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
-            dailyTimesIndex++;
-            dailyTempsIndex++;
-        }
-        dailyTimeOne.setText(dailyTimes[0]);
-        dailyTimeTwo.setText(dailyTimes[1]);
-        dailyTimeThree.setText(dailyTimes[2]);
-        dailyTimeFour.setText(dailyTimes[3]);
-        dailyTimeFive.setText(dailyTimes[4]);
-        dailyTimeSix.setText(dailyTimes[5]);
-
-        dailyTemperatureOne.setText(dailyTemps[0] + "F");
-        dailyTemperatureTwo.setText(dailyTemps[1] + "F");
-        dailyTemperatureThree.setText(dailyTemps[2] + "F");
-        dailyTemperatureFour.setText(dailyTemps[3] + "F");
-        dailyTemperatureFive.setText(dailyTemps[4] + "F");
-        dailyTemperatureSix.setText(dailyTemps[5] + "F");
+        setHourlyLabels(pointsHourly);
     }
 
+    //Function made to set Scene 2 Values
     public void setTextFutureForecast() {
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
 
@@ -156,7 +106,8 @@ public class Controller implements  Initializable{
         }
     }
 
-    public void setVisibleUponSearch(Boolean setVisi) {
+    //Function made to change visibilities upon nullCity in Scene 1. Saves a lot of lines of code
+    public void setVisibleUponSearch(boolean setVisi) {
         Label[] visiLabels = {temperature, weather, rainChance,
                 dailyTimeOne, dailyTimeTwo, dailyTimeThree,
                 dailyTimeFour, dailyTimeFive, dailyTimeSix,
@@ -167,6 +118,7 @@ public class Controller implements  Initializable{
         }
     }
 
+    //Function made to change visibilities upon nullCity in Scene 2
     private void setFutureVisibility(boolean setVisi) {
         Label[] visiLabelsFuture = {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6,
                 FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6,
@@ -175,6 +127,35 @@ public class Controller implements  Initializable{
                 FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
         for (Label l : visiLabelsFuture) {
             l.setVisible(setVisi);
+        }
+    }
+
+    //Used to format hour in Time Labels. Function made for readability and preventing long if statements
+    private String formatTimeLabelText(int pointsHour) {
+        if (pointsHour == 0)  {
+            return "12AM";
+        }
+        else if (pointsHour == 12) {
+            return "12PM";
+        }
+        else if (pointsHour > 12)  {
+            return (pointsHour - 12) + "PM";
+        }
+        else {
+            return pointsHour + "AM";
+        }
+    }
+
+    //Function made to set the hourly labels in Scene 1. Saves code as opposed to calling long for loop multiple times
+    private void setHourlyLabels(ArrayList<HourlyPeriod> pointsHourly) {
+        Label[] timeLabels = {dailyTimeOne, dailyTimeTwo, dailyTimeThree,
+                dailyTimeFour, dailyTimeFive, dailyTimeSix};
+        Label[] tempLabels = {dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
+                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
+        for (int i = 0; i <= 15; i+=3) {
+            int pointsHour = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour();
+            timeLabels[i/3].setText(formatTimeLabelText(pointsHour));
+            tempLabels[i/3].setText(pointsHourly.get(i).temperature + "F");
         }
     }
 
@@ -189,60 +170,18 @@ public class Controller implements  Initializable{
             MyWeatherAPI.lastForecastHourly = pointsHourly;
         }
         if (city != null) {
-            ZoneId zone;
+            ZoneId timeZone;
             if (MyWeatherAPI.timeZone != null) {
-                zone = ZoneId.of(MyWeatherAPI.timeZone);
+                timeZone = ZoneId.of(MyWeatherAPI.timeZone);
             } else {
-                zone = ZoneId.systemDefault();
+                timeZone = ZoneId.systemDefault();
             }
-            time.setText(LocalTime.now(zone).format(DateTimeFormatter.ofPattern("h:mma")));
+            time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mma")));
             weather.setText(pointsHourly.get(0).shortForecast);
             city.setText(MyWeatherAPI.cityName);
             rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
             temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
-//            if (points.get(1).isDaytime) {
-//                tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
-//
-//            } else {
-//                tmrWeather.setText("Tonight's Weather in " + city.getText() + "Will Be: ");
-//            }
-
-            String dailyTimes[] = {"", "", "", "", "", ""};
-            int dailyTimesIndex = 0;
-            int dailyTemps[] = {0, 0, 0, 0, 0, 0};
-            int dailyTempsIndex = 0;
-
-            for (int i = 0; i <= 15; i += 3) {
-                if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
-                    dailyTimes[dailyTimesIndex] = "12AM";
-                } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
-                    dailyTimes[dailyTimesIndex] = "12PM";
-                } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
-                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
-                } else {
-                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
-                }
-                dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
-
-                dailyTimesIndex++;
-                dailyTempsIndex++;
-            }
-
-            dailyTimeOne.setText(dailyTimes[0]);
-            dailyTimeTwo.setText(dailyTimes[1]);
-            dailyTimeThree.setText(dailyTimes[2]);
-            dailyTimeFour.setText(dailyTimes[3]);
-            dailyTimeFive.setText(dailyTimes[4]);
-            dailyTimeSix.setText(dailyTimes[5]);
-
-            dailyTemperatureOne.setText(dailyTemps[0] + "F");
-            dailyTemperatureTwo.setText(dailyTemps[1] + "F");
-            dailyTemperatureThree.setText(dailyTemps[2] + "F");
-            dailyTemperatureFour.setText(dailyTemps[3] + "F");
-            dailyTemperatureFive.setText(dailyTemps[4] + "F");
-            dailyTemperatureSix.setText(dailyTemps[5] + "F");
-
-            //tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
+            setHourlyLabels(pointsHourly);
         }
         if (FTRD1!= null) {
             FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
@@ -268,17 +207,18 @@ public class Controller implements  Initializable{
         }
 
     }
-    public void setTextTodayForecast() {
 
-    }
-    public void switchSeneFuture(ActionEvent e) throws IOException  {
+    //Function made to switch to Scene 2
+    public void switchSceneFuture(ActionEvent e) throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FutureForecast.fxml"));
         Parent root = loader.load();
         Controller controller = loader.getController();
         cityInput.getScene().setRoot(root);
         controller.setTextFutureForecast();
     }
-    public void switchSeneToday(ActionEvent e) throws IOException  {
+
+    //Function made to switch back to Scene 1
+    public void switchSceneToday(ActionEvent e) throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
         Parent root = loader.load();
         Controller controller = loader.getController();
@@ -289,9 +229,7 @@ public class Controller implements  Initializable{
             String cityString = cityInput.getText();
 			ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
             ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(cityString);
-            Boolean nullCity = (newCity==null);
-			if (nullCity) {
-
+			if (newCity==null) {
 				city.setText("City not found");
                 setVisibleUponSearch(false);
 			} else {
@@ -308,40 +246,7 @@ public class Controller implements  Initializable{
                 LocalTime now = LocalTime.now(zone);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
                 time.setText(now.format(formatter));
-                String dailyTimes[] = {"", "", "", "", "", ""};
-                int dailyTimesIndex = 0;
-                int dailyTemps[] = {0, 0, 0, 0, 0, 0};
-                int dailyTempsIndex = 0;
-
-                for (int i = 0; i <= 15; i += 3) {
-                    System.out.println((dailyTimesIndex + 1) + ":" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
-                    if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
-                        dailyTimes[dailyTimesIndex] = "12AM";
-                    } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
-                        dailyTimes[dailyTimesIndex] = "12PM";
-                    } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
-                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
-                    } else {
-                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
-                    }
-                    dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
-                    dailyTimesIndex++;
-                    dailyTempsIndex++;
-                }
-
-                dailyTimeOne.setText(dailyTimes[0]);
-                dailyTimeTwo.setText(dailyTimes[1]);
-                dailyTimeThree.setText(dailyTimes[2]);
-                dailyTimeFour.setText(dailyTimes[3]);
-                dailyTimeFive.setText(dailyTimes[4]);
-                dailyTimeSix.setText(dailyTimes[5]);
-
-                dailyTemperatureOne.setText(dailyTemps[0] + "F");
-                dailyTemperatureTwo.setText(dailyTemps[1] + "F");
-                dailyTemperatureThree.setText(dailyTemps[2] + "F");
-                dailyTemperatureFour.setText(dailyTemps[3] + "F");
-                dailyTemperatureFive.setText(dailyTemps[4] + "F");
-                dailyTemperatureSix.setText(dailyTemps[5] + "F");
+                setHourlyLabels(pointsHourly);
             }
     }
     public void searchMethodFuture(ActionEvent e) throws IOException {
