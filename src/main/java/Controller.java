@@ -81,6 +81,9 @@ public class Controller implements  Initializable{
     @FXML
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
+    public static int staticCurrentTemperature;
+    public static int staticDailyTemp[] = {0, 0, 0, 0, 0, 0};
+
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
@@ -103,6 +106,7 @@ public class Controller implements  Initializable{
             city.setText(MyWeatherAPI.cityName);
             rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
             temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
+            staticCurrentTemperature = pointsHourly.get(0).temperature;
             if (points.get(1).isDaytime) {
                 tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
 
@@ -144,6 +148,10 @@ public class Controller implements  Initializable{
             dailyTemperatureFour.setText(dailyTemps[3] + "F");
             dailyTemperatureFive.setText(dailyTemps[4] + "F");
             dailyTemperatureSix.setText(dailyTemps[5] + "F");
+
+            for (int i = 0; i < 6; i++) {
+                staticDailyTemp[i] = dailyTemps[i];
+            }
 
             tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
@@ -227,6 +235,7 @@ public class Controller implements  Initializable{
                 dailyTemperatureSix.setVisible(true);
 
                 temperature.setText(String.valueOf(pointsHourly.get(0).temperature)+"F");
+                staticCurrentTemperature = pointsHourly.get(0).temperature;
                 weather.setText(pointsHourly.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -276,6 +285,10 @@ public class Controller implements  Initializable{
                 dailyTemperatureFour.setText(dailyTemps[3] + "F");
                 dailyTemperatureFive.setText(dailyTemps[4] + "F");
                 dailyTemperatureSix.setText(dailyTemps[5] + "F");
+
+                for (int i = 0; i < 6; i++) {
+                    staticDailyTemp[i] = dailyTemps[i];
+                }
 
             }
     }
