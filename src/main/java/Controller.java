@@ -99,10 +99,10 @@ public class Controller implements  Initializable{
                 zone = ZoneId.systemDefault();
             }
             time.setText(LocalTime.now(zone).format(DateTimeFormatter.ofPattern("h:mma")));
-            weather.setText(points.get(0).shortForecast);
+            weather.setText(pointsHourly.get(0).shortForecast);
             city.setText(MyWeatherAPI.cityName);
-            rainChance.setText("The chance of rain is " + String.valueOf(points.get(0).probabilityOfPrecipitation.value) + "%");
-            temperature.setText(String.valueOf(points.get(0).temperature) + "F");
+            rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+            temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
             if (points.get(1).isDaytime) {
                 tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
 
@@ -227,8 +227,8 @@ public class Controller implements  Initializable{
                 dailyTemperatureSix.setVisible(true);
 
                 temperature.setText(String.valueOf(pointsHourly.get(0).temperature)+"F");
-                weather.setText(newCity.get(0).shortForecast);
-                rainChance.setText("The chance of rain is " + String.valueOf(newCity.get(0).probabilityOfPrecipitation.value) + "%");
+                weather.setText(pointsHourly.get(0).shortForecast);
+                rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
                 LocalTime now = LocalTime.now(zone);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
