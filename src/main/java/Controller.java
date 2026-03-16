@@ -64,15 +64,15 @@ public class Controller implements  Initializable{
 
     @FXML
     private Label tmrWeatherForecast;
-    @FXML
+    @FXML //Future Date
     private Label FTRD1,FTRD2,FTRD3,FTRD4,FTRD5,FTRD6;
-    @FXML
+    @FXML //Future Morning Temp
     private Label FTRMT1,FTRMT2,FTRMT3,FTRMT4,FTRMT5,FTRMT6;
-    @FXML
+    @FXML //Future Nightime Temp
     private Label FTRNT1,FTRNT2,FTRNT3,FTRNT4,FTRNT5,FTRNT6;
-    @FXML
+    @FXML //Future Wind Speed
     private Label FTRWS1,FTRWS2,FTRWS3,FTRWS4,FTRWS5,FTRWS6;
-    @FXML
+    @FXML //Future Rain Chance
     private Label FTRRC1,FTRRC2,FTRRC3,FTRRC4,FTRRC5,FTRRC6;
     @FXML
     private Label FtrForecastCity;
@@ -110,7 +110,6 @@ public class Controller implements  Initializable{
             dailyTimesIndex++;
             dailyTempsIndex++;
         }
-
         dailyTimeOne.setText(dailyTimes[0]);
         dailyTimeTwo.setText(dailyTimes[1]);
         dailyTimeThree.setText(dailyTimes[2]);
@@ -154,6 +153,28 @@ public class Controller implements  Initializable{
             nightLabels[i].setText(newCity.get(start + i * 2 + 1).temperature + "F");
             windLabels[i].setText(newCity.get(start+i*2).windSpeed+" "+newCity.get(start+i*2).windDirection);
             chanceLabels[i].setText(newCity.get(start + i * 2).probabilityOfPrecipitation.value + "%");
+        }
+    }
+
+    public void setVisibleUponSearch(Boolean setVisi) {
+        Label[] visiLabels = {temperature, weather, rainChance,
+                dailyTimeOne, dailyTimeTwo, dailyTimeThree,
+                dailyTimeFour, dailyTimeFive, dailyTimeSix,
+                dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
+                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
+        for (Label l : visiLabels) {
+            l.setVisible(setVisi);
+        }
+    }
+
+    private void setFutureVisibility(boolean setVisi) {
+        Label[] visiLabelsFuture = {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6,
+                FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6,
+                FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6,
+                FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6,
+                FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
+        for (Label l : visiLabelsFuture) {
+            l.setVisible(setVisi);
         }
     }
 
@@ -268,48 +289,16 @@ public class Controller implements  Initializable{
             String cityString = cityInput.getText();
 			ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
             ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(cityString);
+            Boolean nullCity = (newCity==null);
+			if (nullCity) {
 
-			if (newCity == null) {
 				city.setText("City not found");
-				temperature.setVisible(false);
-				weather.setVisible(false);
-				rainChance.setVisible(false);
-                tmrWeather.setVisible(false);
-                //dailyTimeOne.setVisible(false);
-                dailyTimeTwo.setVisible(false);
-                dailyTimeThree.setVisible(false);
-                dailyTimeFour.setVisible(false);
-                dailyTimeFive.setVisible(false);
-                dailyTimeSix.setVisible(false);
-                //tmrWeatherForecast.setVisible(false);
-                dailyTemperatureOne.setVisible(false);
-                dailyTemperatureTwo.setVisible(false);
-                dailyTemperatureThree.setVisible(false);
-                dailyTemperatureFour.setVisible(false);
-                dailyTemperatureFive.setVisible(false);
-                dailyTemperatureSix.setVisible(false);
+                setVisibleUponSearch(false);
 			} else {
                 System.out.println(cityString);
                 currentCityString = cityInput.getText();
                 city.setText(MyWeatherAPI.cityName);
-                temperature.setVisible(true);
-                weather.setVisible(true);
-                rainChance.setVisible(true);
-                //tmrWeather.setVisible(true);
-                //tmrWeatherForecast.setVisible(true);
-                dailyTimeOne.setVisible(true);
-                dailyTimeTwo.setVisible(true);
-                dailyTimeThree.setVisible(true);
-                dailyTimeFour.setVisible(true);
-                dailyTimeFive.setVisible(true);
-                dailyTimeSix.setVisible(true);
-                //mrWeatherForecast.setVisible(true);
-                dailyTemperatureOne.setVisible(true);
-                dailyTemperatureTwo.setVisible(true);
-                dailyTemperatureThree.setVisible(true);
-                dailyTemperatureFour.setVisible(true);
-                dailyTemperatureFive.setVisible(true);
-                dailyTemperatureSix.setVisible(true);
+                setVisibleUponSearch(true);
 
                 temperature.setText(pointsHourly.get(0).temperature +"F");
                 weather.setText(pointsHourly.get(0).shortForecast);
@@ -319,15 +308,6 @@ public class Controller implements  Initializable{
                 LocalTime now = LocalTime.now(zone);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
                 time.setText(now.format(formatter));
-//                if (newCity.get(1).isDaytime) {
-//                    tmrWeather.setText("Tomorrow's Weather in "+city.getText()+"Will Be: ");
-//
-//                }
-//                else {
-//                    tmrWeather.setText("Tonight's Weather in "+city.getText()+"Will Be: ");
-//                }
-                //tmrWeatherForecast.setText(newCity.get(1).temperature+"F with "+newCity.get(1).shortForecast);
-
                 String dailyTimes[] = {"", "", "", "", "", ""};
                 int dailyTimesIndex = 0;
                 int dailyTemps[] = {0, 0, 0, 0, 0, 0};
@@ -367,15 +347,15 @@ public class Controller implements  Initializable{
     public void searchMethodFuture(ActionEvent e) throws IOException {
         String cityString = cityInput.getText();
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
+        if (newCity == null) {
+            FtrForecastCity.setText("City not found");
+            setFutureVisibility(false);
+            return;
+        }
+        setFutureVisibility(true);
         if (FTRD1!= null) {
             currentCityString = cityInput.getText();
             FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
-            FTRD1.setText(LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("MMMM d")));
-            FTRD2.setText(LocalDate.now().plusDays(2).format(DateTimeFormatter.ofPattern("MMMM d")));
-            FTRD3.setText(LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("MMMM d")));
-            FTRD4.setText(LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("MMMM d")));
-            FTRD5.setText(LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("MMMM d")));
-            FTRD6.setText(LocalDate.now().plusDays(6).format(DateTimeFormatter.ofPattern("MMMM d")));
             int start;
             if (newCity.get(0).isDaytime == false) {
                 start = 1;
