@@ -81,9 +81,12 @@ public class Controller implements  Initializable{
     @FXML
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
-    public static int staticCurrentTemperature;
-    public static int staticDailyTemp[] = {0, 0, 0, 0, 0, 0};
+    public static int currentTemperatureStatic;
+    public static String dailyTimesStatic[] = {"", "", "", "", "", ""};
+    public static int dailyTempStatic[] = {0, 0, 0, 0, 0, 0};
     public static String currentCityString = "Chicago";
+    public static String rainChanceStatic;
+    public static String weatherDescriptionStatic;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
@@ -106,14 +109,15 @@ public class Controller implements  Initializable{
             weather.setText(pointsHourly.get(0).shortForecast);
             city.setText(MyWeatherAPI.cityName);
             rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+            rainChanceStatic = "The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%";
             temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
-            staticCurrentTemperature = pointsHourly.get(0).temperature;
-            if (points.get(1).isDaytime) {
-                tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
-
-            } else {
-                tmrWeather.setText("Tonight's Weather in " + city.getText() + "Will Be: ");
-            }
+            currentTemperatureStatic = pointsHourly.get(0).temperature;
+//            if (points.get(1).isDaytime) {
+//                tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
+//
+//            } else {
+//                tmrWeather.setText("Tonight's Weather in " + city.getText() + "Will Be: ");
+//            }
 
             String dailyTimes[] = {"", "", "", "", "", ""};
             int dailyTimesIndex = 0;
@@ -151,10 +155,14 @@ public class Controller implements  Initializable{
             dailyTemperatureSix.setText(dailyTemps[5] + "F");
 
             for (int i = 0; i < 6; i++) {
-                staticDailyTemp[i] = dailyTemps[i];
+                dailyTimesStatic[i] = dailyTimes[i];
             }
 
-            tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
+            for (int i = 0; i < 6; i++) {
+                dailyTempStatic[i] = dailyTemps[i];
+            }
+
+            //tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
         if (FTRD1!= null) {
             FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
@@ -178,6 +186,9 @@ public class Controller implements  Initializable{
                 chanceLabels[i].setText(points.get(start + i * 2).probabilityOfPrecipitation.value + "%");
             }
         }
+
+    }
+    public void setTextTodayForecast() {
 
     }
     public void switchSeneFuture(ActionEvent e) throws IOException  {
@@ -237,8 +248,8 @@ public class Controller implements  Initializable{
                 dailyTemperatureFive.setVisible(true);
                 dailyTemperatureSix.setVisible(true);
 
-                staticCurrentTemperature = pointsHourly.get(0).temperature;
-                temperature.setText(staticCurrentTemperature+"F");
+                currentTemperatureStatic = pointsHourly.get(0).temperature;
+                temperature.setText(currentTemperatureStatic+"F");
                 weather.setText(pointsHourly.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -290,7 +301,11 @@ public class Controller implements  Initializable{
                 dailyTemperatureSix.setText(dailyTemps[5] + "F");
 
                 for (int i = 0; i < 6; i++) {
-                    staticDailyTemp[i] = dailyTemps[i];
+                    dailyTimesStatic[i] = dailyTimes[i];
+                }
+
+                for (int i = 0; i < 6; i++) {
+                    dailyTempStatic[i] = dailyTemps[i];
                 }
 
             }
