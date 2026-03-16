@@ -88,6 +88,12 @@ public class Controller implements  Initializable{
     public static String rainChanceStatic;
     public static String weatherDescriptionStatic;
 
+    public void setStaticValues() {
+        ArrayList<Period> points = MyWeatherAPI.lastForecast;
+        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
+        currentTemperatureStatic = pointsHourly.get(0).temperature;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
@@ -212,13 +218,13 @@ public class Controller implements  Initializable{
 				weather.setVisible(false);
 				rainChance.setVisible(false);
                 tmrWeather.setVisible(false);
-                dailyTimeOne.setVisible(false);
+                //dailyTimeOne.setVisible(false);
                 dailyTimeTwo.setVisible(false);
                 dailyTimeThree.setVisible(false);
                 dailyTimeFour.setVisible(false);
                 dailyTimeFive.setVisible(false);
                 dailyTimeSix.setVisible(false);
-                tmrWeatherForecast.setVisible(false);
+                //tmrWeatherForecast.setVisible(false);
                 dailyTemperatureOne.setVisible(false);
                 dailyTemperatureTwo.setVisible(false);
                 dailyTemperatureThree.setVisible(false);
@@ -232,15 +238,15 @@ public class Controller implements  Initializable{
                 temperature.setVisible(true);
                 weather.setVisible(true);
                 rainChance.setVisible(true);
-                tmrWeather.setVisible(true);
-                tmrWeatherForecast.setVisible(true);
+                //tmrWeather.setVisible(true);
+                //tmrWeatherForecast.setVisible(true);
                 dailyTimeOne.setVisible(true);
                 dailyTimeTwo.setVisible(true);
                 dailyTimeThree.setVisible(true);
                 dailyTimeFour.setVisible(true);
                 dailyTimeFive.setVisible(true);
                 dailyTimeSix.setVisible(true);
-                tmrWeatherForecast.setVisible(true);
+                //mrWeatherForecast.setVisible(true);
                 dailyTemperatureOne.setVisible(true);
                 dailyTemperatureTwo.setVisible(true);
                 dailyTemperatureThree.setVisible(true);
@@ -251,19 +257,21 @@ public class Controller implements  Initializable{
                 currentTemperatureStatic = pointsHourly.get(0).temperature;
                 temperature.setText(currentTemperatureStatic+"F");
                 weather.setText(pointsHourly.get(0).shortForecast);
+                rainChanceStatic = "The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%";
                 rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
                 LocalTime now = LocalTime.now(zone);
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
                 time.setText(now.format(formatter));
-                if (newCity.get(1).isDaytime) {
-                    tmrWeather.setText("Tomorrow's Weather in "+city.getText()+"Will Be: ");
-
-                }
-                else {
-                    tmrWeather.setText("Tonight's Weather in "+city.getText()+"Will Be: ");
-                }
-                tmrWeatherForecast.setText(newCity.get(1).temperature+"F with "+newCity.get(1).shortForecast);
+//                if (newCity.get(1).isDaytime) {
+//                    tmrWeather.setText("Tomorrow's Weather in "+city.getText()+"Will Be: ");
+//
+//                }
+//                else {
+//                    tmrWeather.setText("Tonight's Weather in "+city.getText()+"Will Be: ");
+//                }
+                //tmrWeatherForecast.setText(newCity.get(1).temperature+"F with "+newCity.get(1).shortForecast);
 
                 String dailyTimes[] = {"", "", "", "", "", ""};
                 int dailyTimesIndex = 0;

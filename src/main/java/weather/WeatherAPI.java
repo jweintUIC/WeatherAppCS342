@@ -30,8 +30,6 @@ public class WeatherAPI {
     }
 
     public static ArrayList<HourlyPeriod> getHourlyForecast(String region, int gridx, int gridy) {
-        String apiRequest = "https://api.weather.gov/gridpoints/"+region+"/"+String.valueOf(gridx)+","+String.valueOf(gridy)+"/forecast/hourly";
-        System.out.println(apiRequest);
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.weather.gov/gridpoints/"+region+"/"+String.valueOf(gridx)+","+String.valueOf(gridy)+"/forecast/hourly"))
                 .build();
