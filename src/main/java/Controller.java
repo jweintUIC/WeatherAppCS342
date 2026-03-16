@@ -83,14 +83,15 @@ public class Controller implements  Initializable{
 
     public static int staticCurrentTemperature;
     public static int staticDailyTemp[] = {0, 0, 0, 0, 0, 0};
+    public static String currentCityString = "Chicago";
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         ArrayList<Period> points = MyWeatherAPI.lastForecast;
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
         if (points == null) {
-            points = MyWeatherAPI.getPointForecast("Chicago");
-            pointsHourly = MyWeatherAPI.getPointForecastHourly("Chicago");
+            points = MyWeatherAPI.getPointForecast(currentCityString);
+            pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
             MyWeatherAPI.lastForecast = points;
             MyWeatherAPI.lastForecastHourly = pointsHourly;
         }
@@ -214,6 +215,8 @@ public class Controller implements  Initializable{
                 dailyTemperatureFive.setVisible(false);
                 dailyTemperatureSix.setVisible(false);
 			} else {
+                System.out.println(cityString);
+                currentCityString = cityInput.getText();
                 city.setText(MyWeatherAPI.cityName);
                 temperature.setVisible(true);
                 weather.setVisible(true);
@@ -234,8 +237,8 @@ public class Controller implements  Initializable{
                 dailyTemperatureFive.setVisible(true);
                 dailyTemperatureSix.setVisible(true);
 
-                temperature.setText(String.valueOf(pointsHourly.get(0).temperature)+"F");
                 staticCurrentTemperature = pointsHourly.get(0).temperature;
+                temperature.setText(staticCurrentTemperature+"F");
                 weather.setText(pointsHourly.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -257,7 +260,7 @@ public class Controller implements  Initializable{
                 int dailyTempsIndex = 0;
 
                 for (int i = 0; i <= 15; i += 3) {
-                    System.out.println((dailyTimesIndex + 1) + ":" +pointsHourly.get(i).startTime.getHours());
+                    System.out.println((dailyTimesIndex + 1) + ":" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
                     if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
                         dailyTimes[dailyTimesIndex] = "12AM";
                     } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {

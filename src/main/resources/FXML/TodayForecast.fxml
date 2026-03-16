@@ -92,27 +92,6 @@
                      </HBox.margin>
                   </VBox>
                </children></HBox>
-            <HBox alignment="CENTER" prefHeight="107.0" prefWidth="350.0" style="-fx-background-color: #9b6b6b;">
-               <VBox.margin>
-                  <Insets left="15.0" right="15.0" top="60.0" />
-               </VBox.margin>
-               <children>
-                  <VBox alignment="CENTER" prefHeight="107.0" prefWidth="350.0">
-                     <children>
-                        <Label fx:id="tmrWeather" text="TIMES Weather in CITY Will Be :" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="tmrWeatherForecast" alignment="CENTER" prefWidth="300.0" text="Detailed Forcast" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #9b6b6b;">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
