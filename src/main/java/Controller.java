@@ -92,7 +92,13 @@ public class Controller implements  Initializable{
             MyWeatherAPI.lastForecastHourly = pointsHourly;
         }
         if (city != null) {
-            time.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("h:mma")));
+            ZoneId zone;
+            if (MyWeatherAPI.timeZone != null) {
+                zone = ZoneId.of(MyWeatherAPI.timeZone);
+            } else {
+                zone = ZoneId.systemDefault();
+            }
+            time.setText(LocalTime.now(zone).format(DateTimeFormatter.ofPattern("h:mma")));
             weather.setText(points.get(0).shortForecast);
             city.setText(MyWeatherAPI.cityName);
             rainChance.setText("The chance of rain is " + String.valueOf(points.get(0).probabilityOfPrecipitation.value) + "%");
@@ -110,14 +116,14 @@ public class Controller implements  Initializable{
             int dailyTempsIndex = 0;
 
             for (int i = 0; i <= 15; i += 3) {
-                if (pointsHourly.get(i).startTime.getHours() == 0) {
+                if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
                     dailyTimes[dailyTimesIndex] = "12AM";
-                } else if (pointsHourly.get(i).startTime.getHours() == 12) {
+                } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
                     dailyTimes[dailyTimesIndex] = "12PM";
-                } else if (pointsHourly.get(i).startTime.getHours() > 12) {
-                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() - 12 + "PM";
+                } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
+                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
                 } else {
-                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() + "AM";
+                    dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
                 }
                 dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
 
@@ -243,17 +249,16 @@ public class Controller implements  Initializable{
 
                 for (int i = 0; i <= 15; i += 3) {
                     System.out.println((dailyTimesIndex + 1) + ":" +pointsHourly.get(i).startTime.getHours());
-                    if (pointsHourly.get(i).startTime.getHours() == 0) {
+                    if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
                         dailyTimes[dailyTimesIndex] = "12AM";
-                    } else if (pointsHourly.get(i).startTime.getHours() == 12) {
+                    } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
                         dailyTimes[dailyTimesIndex] = "12PM";
-                    } else if (pointsHourly.get(i).startTime.getHours() > 12) {
-                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() - 12 + "PM";
+                    } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
+                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
                     } else {
-                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.getHours() + "AM";
+                        dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
                     }
                     dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
-
                     dailyTimesIndex++;
                     dailyTempsIndex++;
                 }
