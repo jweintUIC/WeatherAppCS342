@@ -81,17 +81,49 @@ public class Controller implements  Initializable{
     @FXML
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
-    public static int currentTemperatureStatic;
-    public static String dailyTimesStatic[] = {"", "", "", "", "", ""};
-    public static int dailyTempStatic[] = {0, 0, 0, 0, 0, 0};
     public static String currentCityString = "Chicago";
-    public static String rainChanceStatic;
-    public static String weatherDescriptionStatic;
 
-    public void setStaticValues() {
-        ArrayList<Period> points = MyWeatherAPI.lastForecast;
-        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
-        currentTemperatureStatic = pointsHourly.get(0).temperature;
+    public void setValuesTodayForecast() {
+        ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
+        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
+        temperature.setText(pointsHourly.get(0).temperature +"F");
+        weather.setText(pointsHourly.get(0).shortForecast);
+        rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+
+        String dailyTimes[] = {"", "", "", "", "", ""};
+        int dailyTimesIndex = 0;
+        int dailyTemps[] = {0, 0, 0, 0, 0, 0};
+        int dailyTempsIndex = 0;
+
+        for (int i = 0; i <= 15; i += 3) {
+            System.out.println((dailyTimesIndex + 1) + ":" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
+            if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 0) {
+                dailyTimes[dailyTimesIndex] = "12AM";
+            } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() == 12) {
+                dailyTimes[dailyTimesIndex] = "12PM";
+            } else if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() > 12) {
+                dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() - 12 + "PM";
+            } else {
+                dailyTimes[dailyTimesIndex] = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() + "AM";
+            }
+            dailyTemps[dailyTempsIndex] = pointsHourly.get(i).temperature;
+            dailyTimesIndex++;
+            dailyTempsIndex++;
+        }
+
+        dailyTimeOne.setText(dailyTimes[0]);
+        dailyTimeTwo.setText(dailyTimes[1]);
+        dailyTimeThree.setText(dailyTimes[2]);
+        dailyTimeFour.setText(dailyTimes[3]);
+        dailyTimeFive.setText(dailyTimes[4]);
+        dailyTimeSix.setText(dailyTimes[5]);
+
+        dailyTemperatureOne.setText(dailyTemps[0] + "F");
+        dailyTemperatureTwo.setText(dailyTemps[1] + "F");
+        dailyTemperatureThree.setText(dailyTemps[2] + "F");
+        dailyTemperatureFour.setText(dailyTemps[3] + "F");
+        dailyTemperatureFive.setText(dailyTemps[4] + "F");
+        dailyTemperatureSix.setText(dailyTemps[5] + "F");
     }
 
     @Override
@@ -115,9 +147,7 @@ public class Controller implements  Initializable{
             weather.setText(pointsHourly.get(0).shortForecast);
             city.setText(MyWeatherAPI.cityName);
             rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
-            rainChanceStatic = "The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%";
             temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
-            currentTemperatureStatic = pointsHourly.get(0).temperature;
 //            if (points.get(1).isDaytime) {
 //                tmrWeather.setText("Tomorrow's Weather in " + city.getText() + "Will Be: ");
 //
@@ -160,14 +190,6 @@ public class Controller implements  Initializable{
             dailyTemperatureFive.setText(dailyTemps[4] + "F");
             dailyTemperatureSix.setText(dailyTemps[5] + "F");
 
-            for (int i = 0; i < 6; i++) {
-                dailyTimesStatic[i] = dailyTimes[i];
-            }
-
-            for (int i = 0; i < 6; i++) {
-                dailyTempStatic[i] = dailyTemps[i];
-            }
-
             //tmrWeatherForecast.setText(points.get(1).temperature + "F with " + points.get(1).shortForecast);
         }
         if (FTRD1!= null) {
@@ -205,7 +227,9 @@ public class Controller implements  Initializable{
     public void switchSeneToday(ActionEvent e) throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
         Parent root = loader.load();
+        Controller controller = loader.getController();
         cityInput.getScene().setRoot(root);
+        controller.setValuesTodayForecast();
     }
     public void searchMethod(ActionEvent e) throws IOException {
             String cityString = cityInput.getText();
@@ -254,10 +278,8 @@ public class Controller implements  Initializable{
                 dailyTemperatureFive.setVisible(true);
                 dailyTemperatureSix.setVisible(true);
 
-                currentTemperatureStatic = pointsHourly.get(0).temperature;
-                temperature.setText(currentTemperatureStatic+"F");
+                temperature.setText(pointsHourly.get(0).temperature +"F");
                 weather.setText(pointsHourly.get(0).shortForecast);
-                rainChanceStatic = "The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%";
                 rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
 
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -307,15 +329,6 @@ public class Controller implements  Initializable{
                 dailyTemperatureFour.setText(dailyTemps[3] + "F");
                 dailyTemperatureFive.setText(dailyTemps[4] + "F");
                 dailyTemperatureSix.setText(dailyTemps[5] + "F");
-
-                for (int i = 0; i < 6; i++) {
-                    dailyTimesStatic[i] = dailyTimes[i];
-                }
-
-                for (int i = 0; i < 6; i++) {
-                    dailyTempStatic[i] = dailyTemps[i];
-                }
-
             }
     }
     public void searchMethodFuture(ActionEvent e) throws IOException {
