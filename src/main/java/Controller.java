@@ -226,7 +226,7 @@ public class Controller implements  Initializable{
                 dailyTemperatureFive.setVisible(true);
                 dailyTemperatureSix.setVisible(true);
 
-                temperature.setText(String.valueOf(newCity.get(0).temperature)+"F");
+                temperature.setText(String.valueOf(pointsHourly.get(0).temperature)+"F");
                 weather.setText(newCity.get(0).shortForecast);
                 rainChance.setText("The chance of rain is " + String.valueOf(newCity.get(0).probabilityOfPrecipitation.value) + "%");
                 ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
