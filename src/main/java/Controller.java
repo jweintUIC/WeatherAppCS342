@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -14,6 +15,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Rectangle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import java.util.ArrayList;
 
@@ -60,6 +64,18 @@ public class Controller implements  Initializable{
 
     @FXML //Hourly Temperatures in Scene 1
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
+
+    @FXML
+    private Label loadingLabel;
+
+    @FXML
+    private Rectangle loadingRectangle;
+
+    @FXML
+    private Label loadingLabelFuture;
+
+    @FXML
+    private Rectangle loadingRectangleFuture;
 
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
@@ -235,21 +251,52 @@ public class Controller implements  Initializable{
     }
 
     //Function made to switch to Scene 2
-    public void switchSceneFuture(ActionEvent e) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FutureForecast.fxml"));
-        Parent root = loader.load();
-        Controller controller = loader.getController();
-        cityInput.getScene().setRoot(root);
-        controller.setTextFutureForecast();
+    public void switchSceneFuture(ActionEvent e) throws IOException {
+        loadingRectangle.toFront();
+        loadingLabel.toFront();
+        System.out.println("Start");
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FutureForecast.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                Controller controller = loader.getController();
+                cityInput.getScene().setRoot(root);
+                controller.setTextFutureForecast();
+            }
+        };
+        timer.schedule(task, 500);
     }
 
     //Function made to switch back to Scene 1
     public void switchSceneToday(ActionEvent e) throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
-        Parent root = loader.load();
-        Controller controller = loader.getController();
-        cityInput.getScene().setRoot(root);
-        controller.setValuesTodayForecast();
+        loadingRectangleFuture.toFront();
+        loadingLabelFuture.toFront();
+        System.out.println("Start");
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                Controller controller = loader.getController();
+                cityInput.getScene().setRoot(root);
+                controller.setTextFutureForecast();
+            }
+        };
+        timer.schedule(task, 500);
+
     }
     public void searchMethod(ActionEvent e) throws IOException {
             String cityString = cityInput.getText();
