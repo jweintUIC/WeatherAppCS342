@@ -1,4 +1,6 @@
-package weather;
+package HourlyWeather;
+
+import weather.Elevation;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import weather.HourlyPeriod;
+import HourlyWeather.HourlyPeriod;
 import weather.Period;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

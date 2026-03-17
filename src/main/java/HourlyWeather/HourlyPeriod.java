@@ -1,4 +1,6 @@
-package weather;
+package HourlyWeather;
+
+import weather.ProbabilityOfPrecipitation;
 
 import java.util.Date;
 

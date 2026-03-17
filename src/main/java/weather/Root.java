@@ -1,5 +1,6 @@
 package weather;
 
+import HourlyWeather.HourlyProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

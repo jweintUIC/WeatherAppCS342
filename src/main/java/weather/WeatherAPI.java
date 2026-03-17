@@ -6,6 +6,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
+import HourlyWeather.HourlyPeriod;
+import HourlyWeather.HourlyRoot;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper; // version 2.11.1
 
@@ -29,30 +31,7 @@ public class WeatherAPI {
         return r.properties.periods;
     }
 
-    public static ArrayList<HourlyPeriod> getHourlyForecast(String region, int gridx, int gridy) {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.weather.gov/gridpoints/"+region+"/"+String.valueOf(gridx)+","+String.valueOf(gridy)+"/forecast/hourly"))
-                .build();
-        HttpResponse<String> response = null;
-        try {
-            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (Exception e) {
-                e.printStackTrace();
-        }
-        ObjectMapper om = new ObjectMapper();
-        HourlyRoot r = null;
-        try {
-            r = om.readValue(response.body(), HourlyRoot.class);
-            if(r == null){
-                System.err.println("Failed to parse JSon");
-                return null;
-            }
-            return r.properties.periods;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     public static Root getObject(String json){
         ObjectMapper om = new ObjectMapper();

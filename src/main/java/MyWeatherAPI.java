@@ -1,4 +1,4 @@
-import weather.HourlyPeriod;
+import HourlyWeather.HourlyPeriod;
 import weather.Period;
 import weather.WeatherAPI;
 import java.net.URI;
@@ -8,6 +8,16 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.net.URLEncoder;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+
+import HourlyWeather.HourlyPeriod;
+import HourlyWeather.HourlyRoot;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MyWeatherAPI extends WeatherAPI {
@@ -89,6 +99,31 @@ public class MyWeatherAPI extends WeatherAPI {
         return null;
     }
 
+    public static ArrayList<HourlyPeriod> getHourlyForecast(String region, int gridx, int gridy) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.weather.gov/gridpoints/"+region+"/"+String.valueOf(gridx)+","+String.valueOf(gridy)+"/forecast/hourly"))
+                .build();
+        HttpResponse<String> response = null;
+        try {
+            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ObjectMapper om = new ObjectMapper();
+        HourlyRoot r = null;
+        try {
+            r = om.readValue(response.body(), HourlyRoot.class);
+            if(r == null){
+                System.err.println("Failed to parse JSon");
+                return null;
+            }
+            return r.properties.periods;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static ArrayList<HourlyPeriod> getPointForecastHourly(double lat, double lon) {
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -110,7 +145,7 @@ public class MyWeatherAPI extends WeatherAPI {
             System.out.println(gridX);
             System.out.println(gridY);
 
-            return WeatherAPI.getHourlyForecast(region, gridX, gridY);
+            return getHourlyForecast(region, gridX, gridY);
 
         } catch (Exception e) {
             e.printStackTrace();

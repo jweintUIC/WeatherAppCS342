@@ -1,6 +1,7 @@
-package weather;
+package HourlyWeather;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import weather.Geometry;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HourlyRoot {

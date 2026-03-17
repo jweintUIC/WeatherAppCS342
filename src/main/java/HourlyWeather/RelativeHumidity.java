@@ -1,4 +1,4 @@
-package weather;
+package HourlyWeather;
 
 public class RelativeHumidity {
     public String unitCode;

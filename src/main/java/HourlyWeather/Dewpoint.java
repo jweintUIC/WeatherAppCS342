@@ -1,4 +1,4 @@
-package weather;
+package HourlyWeather;
 
 public class Dewpoint {
     public String unitCode;
