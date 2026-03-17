@@ -112,7 +112,7 @@ public class Controller implements  Initializable{
                 dailyTimeOne, dailyTimeTwo, dailyTimeThree,
                 dailyTimeFour, dailyTimeFive, dailyTimeSix,
                 dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
-                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
+                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time};
         for (Label l : visiLabels) {
             l.setVisible(setVisi);
         }
