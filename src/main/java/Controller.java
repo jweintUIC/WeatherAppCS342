@@ -152,10 +152,36 @@ public class Controller implements  Initializable{
                 dailyTimeFour, dailyTimeFive, dailyTimeSix};
         Label[] tempLabels = {dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
                 dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
-        for (int i = 0; i <= 15; i+=3) {
+
+        ZoneId timeZone;
+        if (MyWeatherAPI.timeZone != null) {
+            timeZone = ZoneId.of(MyWeatherAPI.timeZone);
+        } else {
+            timeZone = ZoneId.systemDefault();
+        }
+
+        int alignedIndex = 0;
+
+        for (int i = 0; i < 168; i++) {
+            if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() ==
+                LocalTime.now(timeZone).getHour()) {
+                System.out.println("Points hour:" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
+                System.out.println("Current hour:" + LocalTime.now(timeZone).getHour());
+                alignedIndex = i;
+                break;
+            }
+        }
+
+        int loopFinal = alignedIndex + 15;
+        int timeLabelIndex = 0;
+        int tempLabelIndex = 0;
+
+        for (int i = alignedIndex; i <= loopFinal; i+=3) {
             int pointsHour = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour();
-            timeLabels[i/3].setText(formatTimeLabelText(pointsHour));
-            tempLabels[i/3].setText(pointsHourly.get(i).temperature + "F");
+            timeLabels[timeLabelIndex].setText(formatTimeLabelText(pointsHour));
+            tempLabels[tempLabelIndex].setText(pointsHourly.get(i).temperature + "F");
+            timeLabelIndex++;
+            tempLabelIndex++;
         }
     }
 
