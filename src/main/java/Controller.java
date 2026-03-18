@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -7,6 +6,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import HourlyWeather.HourlyPeriod;
+import javafx.application.Platform;
 import weather.Period;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,9 +82,11 @@ public class Controller implements  Initializable{
 
     //Function made to set Scene 1 Values
     public void setValuesTodayForecast() {
-        ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
+        ZoneId timeZone = ZoneId.of(MyWeatherAPI.timeZone);
+        time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mma")));
         temperature.setText(pointsHourly.get(0).temperature +"F");
+        city.setText(MyWeatherAPI.cityName);
         weather.setText(pointsHourly.get(0).shortForecast);
         rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
         setHourlyLabels(pointsHourly);
@@ -93,32 +95,26 @@ public class Controller implements  Initializable{
     //Function made to set Scene 2 Values
     public void setTextFutureForecast() {
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
-
-        FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
-        FTRD1.setText(LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("MMMM d")));
-        FTRD2.setText(LocalDate.now().plusDays(2).format(DateTimeFormatter.ofPattern("MMMM d")));
-        FTRD3.setText(LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("MMMM d")));
-        FTRD4.setText(LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("MMMM d")));
-        FTRD5.setText(LocalDate.now().plusDays(5).format(DateTimeFormatter.ofPattern("MMMM d")));
-        FTRD6.setText(LocalDate.now().plusDays(6).format(DateTimeFormatter.ofPattern("MMMM d")));
-        int start;
+        int startPoint;
         if (newCity.get(0).isDaytime == false) {
-            start = 1;
+            startPoint = 1;
         } else {
-            start = 2;
+            startPoint = 2;
         }
         Label[] dateLabels =    {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6};
         Label[] morningLabels = {FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6};
         Label[] nightLabels =   {FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6};
         Label[] windLabels =    {FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6};
         Label[] chanceLabels =  {FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
+
+        FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
         ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
         for (int i = 0; i < 6; i++) {
             dateLabels[i].setText(LocalDate.now(zone).plusDays(i+1).format(DateTimeFormatter.ofPattern("MMMM d")));
-            morningLabels[i].setText(newCity.get(start + i * 2).temperature + "F");
-            nightLabels[i].setText(newCity.get(start + i * 2 + 1).temperature + "F");
-            windLabels[i].setText(newCity.get(start+i*2).windSpeed+" "+newCity.get(start+i*2).windDirection);
-            chanceLabels[i].setText(newCity.get(start + i * 2).probabilityOfPrecipitation.value + "%");
+            morningLabels[i].setText(newCity.get(startPoint + i * 2).temperature + "F");
+            nightLabels[i].setText(newCity.get(startPoint + i * 2 + 1).temperature + "F");
+            windLabels[i].setText(newCity.get(startPoint +i*2).windSpeed+" "+newCity.get(startPoint +i*2).windDirection);
+            chanceLabels[i].setText(newCity.get(startPoint + i * 2).probabilityOfPrecipitation.value + "%");
         }
     }
 
@@ -203,51 +199,12 @@ public class Controller implements  Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
-        ArrayList<Period> points = MyWeatherAPI.lastForecast;
-        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
-        if (points == null) {
-            points = MyWeatherAPI.getPointForecast(currentCityString);
-            pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
-            MyWeatherAPI.lastForecast = points;
-            MyWeatherAPI.lastForecastHourly = pointsHourly;
+        if (city != null) { //Checks if in Scene 1
+            setValuesTodayForecast();
         }
-        if (city != null) {
-            ZoneId timeZone;
-            if (MyWeatherAPI.timeZone != null) {
-                timeZone = ZoneId.of(MyWeatherAPI.timeZone);
-            } else {
-                timeZone = ZoneId.systemDefault();
-            }
-            time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mma")));
-            weather.setText(pointsHourly.get(0).shortForecast);
-            city.setText(MyWeatherAPI.cityName);
-            rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
-            temperature.setText(String.valueOf(pointsHourly.get(0).temperature) + "F");
-            setHourlyLabels(pointsHourly);
+        if (FTRD1!= null) { //Checks if in Scene 2
+            setTextFutureForecast();
         }
-        if (FTRD1!= null) {
-            FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
-            int start;
-            if (points.get(0).isDaytime == false) {
-                start = 1;
-            } else {
-                start = 2;
-            }
-            Label[] dateLabels =    {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6};
-            Label[] morningLabels = {FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6};
-            Label[] nightLabels =   {FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6};
-            Label[] windLabels =    {FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6};
-            Label[] chanceLabels =  {FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
-
-            for (int i = 0; i < 6; i++) {
-                dateLabels[i].setText(LocalDate.now().plusDays(i + 1).format(DateTimeFormatter.ofPattern("MMMM d")));
-                morningLabels[i].setText(points.get(start + i * 2).temperature + "F");
-                nightLabels[i].setText(points.get(start + i * 2 + 1).temperature + "F");
-                windLabels[i].setText(points.get(start + i * 2).windSpeed + " " + points.get(start + i * 2).windDirection);
-                chanceLabels[i].setText(points.get(start + i * 2).probabilityOfPrecipitation.value + "%");
-            }
-        }
-
     }
 
     //Function made to switch to Scene 2
@@ -259,16 +216,18 @@ public class Controller implements  Initializable{
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FutureForecast.fxml"));
-                Parent root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                Controller controller = loader.getController();
-                cityInput.getScene().setRoot(root);
-                controller.setTextFutureForecast();
+                Platform.runLater(() -> {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/FutureForecast.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    Controller controller = loader.getController();
+                    cityInput.getScene().setRoot(root);
+                    controller.setTextFutureForecast();
+                });
             }
         };
         timer.schedule(task, 500);
@@ -283,45 +242,39 @@ public class Controller implements  Initializable{
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
-                Parent root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-                Controller controller = loader.getController();
-                cityInput.getScene().setRoot(root);
-                controller.setTextFutureForecast();
+                Platform.runLater(() -> {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TodayForecast.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    Controller controller = loader.getController();
+                    cityInput.getScene().setRoot(root);
+                    controller.setValuesTodayForecast();
+                });
             }
         };
         timer.schedule(task, 500);
 
     }
+
+    //Function made to handle Scene 1 Searchbar
     public void searchMethod(ActionEvent e) throws IOException {
             String cityString = cityInput.getText();
 			ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
-            ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(cityString);
 			if (newCity==null) {
 				city.setText("City not found");
                 setVisibleUponSearch(false);
 			} else {
-                System.out.println(cityString);
-                currentCityString = cityInput.getText();
-                city.setText(MyWeatherAPI.cityName);
+                currentCityString = cityString;
                 setVisibleUponSearch(true);
-
-                temperature.setText(pointsHourly.get(0).temperature +"F");
-                weather.setText(pointsHourly.get(0).shortForecast);
-                rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
-
-                ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
-                LocalTime now = LocalTime.now(zone);
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("h:mma");
-                time.setText(now.format(formatter));
-                setHourlyLabels(pointsHourly);
+                setValuesTodayForecast();
             }
     }
+
+    //Function made to handle Scene 2 Searchbar
     public void searchMethodFuture(ActionEvent e) throws IOException {
         String cityString = cityInput.getText();
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(cityString);
@@ -330,29 +283,10 @@ public class Controller implements  Initializable{
             setFutureVisibility(false);
             return;
         }
+        currentCityString = cityString;
         setFutureVisibility(true);
-        if (FTRD1!= null) {
-            currentCityString = cityInput.getText();
-            FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
-            int start;
-            if (newCity.get(0).isDaytime == false) {
-                start = 1;
-            } else {
-                start = 2;
-            }
-            Label[] dateLabels =    {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6};
-            Label[] morningLabels = {FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6};
-            Label[] nightLabels =   {FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6};
-            Label[] windLabels =    {FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6};
-            Label[] chanceLabels =  {FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
-            ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
-            for (int i = 0; i < 6; i++) {
-                dateLabels[i].setText(LocalDate.now(zone).plusDays(i+1).format(DateTimeFormatter.ofPattern("MMMM d")));
-                morningLabels[i].setText(newCity.get(start + i * 2).temperature + "F");
-                nightLabels[i].setText(newCity.get(start + i * 2 + 1).temperature + "F");
-                windLabels[i].setText(newCity.get(start+i*2).windSpeed+" "+newCity.get(start+i*2).windDirection);
-                chanceLabels[i].setText(newCity.get(start + i * 2).probabilityOfPrecipitation.value + "%");
-            }
+        if (FTRD1!= null) { //checks if in Scene 2
+            setTextFutureForecast();
         }
     }
 }

@@ -8,5 +8,4 @@ public class Root{
     public String type;
     public Geometry geometry;
     public Properties properties;
-    public HourlyProperties hourlyProperties;
 }

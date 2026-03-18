@@ -29,8 +29,6 @@ public class WeatherAPI {
         return r.properties.periods;
     }
 
-
-
     public static Root getObject(String json){
         ObjectMapper om = new ObjectMapper();
         Root toRet = null;
