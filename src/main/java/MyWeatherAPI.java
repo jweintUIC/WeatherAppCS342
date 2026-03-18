@@ -9,16 +9,8 @@ import java.util.ArrayList;
 import java.net.URLEncoder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
 
-import HourlyWeather.HourlyPeriod;
 import HourlyWeather.HourlyRoot;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MyWeatherAPI extends WeatherAPI {
     //this is up here so it can be accessed outside the class
@@ -68,12 +60,18 @@ public class MyWeatherAPI extends WeatherAPI {
             JsonNode results = root.get("results");
 
             JsonNode city = null;
-
+            int highestPop = -99;
             //This is to make sure it is a US city as our weatherAPI only collects from the US
             for (JsonNode r : results) {
                 if (r.get("country_code").asText().equals("US")) {
-                    city = r;
-                    break;
+                    int cityPop = 0;
+                    if (r.has("population")) {
+                        cityPop = r.get("population").asInt();
+                    }
+                    if (cityPop > highestPop) {
+                        highestPop = cityPop;
+                        city = r;
+                    }
                 }
             }
 
@@ -163,12 +161,18 @@ public class MyWeatherAPI extends WeatherAPI {
             JsonNode results = root.get("results");
 
             JsonNode city = null;
-
+            int highestPop = -99;
             //This is to make sure it is a US city as our weatherAPI only collects from the US
             for (JsonNode r : results) {
                 if (r.get("country_code").asText().equals("US")) {
-                    city = r;
-                    break;
+                    int cityPop = 0;
+                    if (r.has("population")) {
+                        cityPop = r.get("population").asInt();
+                    }
+                    if (cityPop > highestPop) {
+                        highestPop = cityPop;
+                        city = r;
+                    }
                 }
             }
 
