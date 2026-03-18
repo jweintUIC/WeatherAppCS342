@@ -21,12 +21,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.6716617941856384" green="0.8277066946029663" blue="0.9736841917037964" />
+                        <Color red="0.6364197731018066" green="0.42592594027519226" blue="1.0" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.23999999463558197" green="0.3861103057861328" blue="0.800000011920929" />
+                        <Color red="0.03519999980926514" green="0.7888345122337341" blue="0.8799999952316284" />
                      </color>
                   </Stop>
                </stops>
@@ -91,7 +91,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/cloudy.png" />
+                                    <Image url="@Images/WeatherIcons/cloud-sunny.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="temperature" text="Temp" textFill="WHITE">
