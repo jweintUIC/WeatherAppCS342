@@ -44,9 +44,6 @@ public class MyWeatherAPI extends WeatherAPI {
             String region = root.get("properties").get("gridId").asText();
             int gridX = root.get("properties").get("gridX").asInt();
             int gridY = root.get("properties").get("gridY").asInt();
-            System.out.println(region);
-            System.out.println(gridX);
-            System.out.println(gridY);
 
             return WeatherAPI.getForecast(region, gridX, gridY);
 
@@ -141,9 +138,6 @@ public class MyWeatherAPI extends WeatherAPI {
             String region = root.get("properties").get("gridId").asText();
             int gridX = root.get("properties").get("gridX").asInt();
             int gridY = root.get("properties").get("gridY").asInt();
-            System.out.println(region);
-            System.out.println(gridX);
-            System.out.println(gridY);
 
             return getHourlyForecast(region, gridX, gridY);
 

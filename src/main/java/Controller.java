@@ -198,8 +198,6 @@ public class Controller implements  Initializable{
         for (int i = 0; i < 168; i++) {
             if (pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour() ==
                 LocalTime.now(timeZone).getHour()) {
-                System.out.println("Points hour:" + pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour());
-                System.out.println("Current hour:" + LocalTime.now(timeZone).getHour());
                 alignedIndex = i;
                 break;
             }
@@ -232,7 +230,6 @@ public class Controller implements  Initializable{
     public void switchSceneFuture(ActionEvent e) throws IOException {
         loadingRectangle.toFront();
         loadingLabel.toFront();
-        System.out.println("Start");
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -258,7 +255,6 @@ public class Controller implements  Initializable{
     public void switchSceneToday(ActionEvent e) throws IOException  {
         loadingRectangleFuture.toFront();
         loadingLabelFuture.toFront();
-        System.out.println("Start");
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
