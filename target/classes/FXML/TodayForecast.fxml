@@ -35,8 +35,10 @@
       </Rectangle>
       <VBox prefHeight="780.0" prefWidth="380.0">
          <children>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="79.0">
                <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+                  <TextField fx:id="cityInput" alignment="TOP_CENTER" onAction="#searchMethod" prefHeight="25.0" prefWidth="283.0" promptText="Enter a City Name Here" />
                   <VBox alignment="TOP_RIGHT" prefHeight="181.0" prefWidth="241.0">
                      <HBox.margin>
                         <Insets />
@@ -62,9 +64,6 @@
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="cityInput" alignment="TOP_CENTER" onAction="#searchMethod" prefHeight="25.0" prefWidth="369.0" promptText="Enter a City Name Here" />
-               </children>
                <opaqueInsets>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </opaqueInsets>
@@ -117,100 +116,97 @@
                      </HBox.margin>
                   </VBox>
                </children></HBox>
-            <BorderPane prefHeight="200.0" prefWidth="264.0" style="-fx-background-color: #6767a3;" translateY="40.0">
-               <left>
-                  <HBox prefHeight="100.0" prefWidth="378.0" style="-fx-background-radius: 50px; -fx-background-color: #6783a3; -fx-border-insets: 20px;" BorderPane.alignment="CENTER">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="112.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="380.0" />
+            <HBox prefHeight="100.0" prefWidth="378.0" style="-fx-background-radius: 15; -fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #6783a3;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label id="dailyTimeOne" fx:id="dailyTimeOne" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureOne" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="dailyTimeTwo" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureTwo" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="dailyTimeThree" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureThree" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="dailyTimeFour" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureFour" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="dailyTimeFive" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureFive" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="dailyTimeSix" text="Time" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="dailyTemperatureSix" text="Label" textAlignment="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
+                        <Label id="dailyTimeOne" fx:id="dailyTimeOne" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureOne" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </HBox>
-               </left>
-            </BorderPane>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="dailyTimeTwo" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureTwo" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="dailyTimeThree" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureThree" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="dailyTimeFour" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureFour" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="dailyTimeFive" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureFive" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                   <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="dailyTimeSix" text="Time" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dailyTemperatureSix" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" mnemonicParsing="false" onAction="#switchSceneFuture" prefHeight="174.0" prefWidth="120.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="260.0" mnemonicParsing="false" onAction="#switchSceneFuture" opacity="0.5" prefHeight="174.0" prefWidth="120.0" />
    </children>
 </AnchorPane>
