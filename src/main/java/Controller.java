@@ -88,6 +88,15 @@ public class Controller implements  Initializable{
     @FXML
     private ImageView FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree, FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix;
 
+    @FXML
+    private ImageView FutureDayTempOne, FutureDayTempTwo, FutureDayTempThree, FutureDayTempFour, FutureDayTempFive, FutureDayTempSix;
+
+    @FXML
+    private ImageView FutureNightTempOne, FutureNightTempTwo, FutureNightTempThree, FutureNightTempFour, FutureNightTempFive, FutureNightTempSix;
+
+    @FXML
+    private ImageView FutureWindOne, FutureWindTwo, FutureWindThree, FutureWindFour, FutureWindFive, FutureWindSix;
+
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
@@ -165,10 +174,13 @@ public class Controller implements  Initializable{
                 dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time,
                 dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
                 dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix};
+
+        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon};
+
         for (Label l : visiLabels) {
             l.setVisible(setVisi);
         }
-        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon};
+
         for (ImageView I : visiImageView) {
             I.setVisible(setVisi);
         }
@@ -181,8 +193,22 @@ public class Controller implements  Initializable{
                 FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6,
                 FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6,
                 FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
+
+        ImageView[] visiImageView = {FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree,
+                FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix,
+                FutureDayTempOne, FutureDayTempTwo, FutureDayTempThree,
+                FutureDayTempFour, FutureDayTempFive, FutureDayTempSix,
+                FutureNightTempOne, FutureNightTempTwo, FutureNightTempThree,
+                FutureNightTempFour, FutureNightTempFive, FutureNightTempSix,
+                FutureWindOne, FutureWindTwo, FutureWindThree,
+                FutureWindFour, FutureWindFive, FutureWindSix};
+
         for (Label l : visiLabelsFuture) {
             l.setVisible(setVisi);
+        }
+
+        for (ImageView I : visiImageView) {
+            I.setVisible(setVisi);
         }
     }
 
