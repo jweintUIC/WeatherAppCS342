@@ -82,6 +82,9 @@ public class Controller implements  Initializable{
     @FXML //Weather Icon in Scene 1
     private ImageView S1WeatherImage;
 
+    @FXML //Percip chance icons for hourly
+    private ImageView HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon;
+
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
@@ -190,6 +193,7 @@ public class Controller implements  Initializable{
                 dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
         Label[] percipLabels = {dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
                 dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix};
+        ImageView[] percipIcons = {HR1Icon,HR2Icon,HR3Icon,HR4Icon,HR5Icon,HR6Icon};
 
         ZoneId timeZone;
         if (MyWeatherAPI.timeZone != null) {
@@ -218,6 +222,13 @@ public class Controller implements  Initializable{
             timeLabels[timeLabelIndex].setText(formatTimeLabelText(pointsHour));
             tempLabels[tempLabelIndex].setText(pointsHourly.get(i).temperature + "F");
             percipLabels[percipLabelIndex].setText(pointsHourly.get(i).probabilityOfPrecipitation.value + "%");
+            if (pointsHourly.get(i).shortForecast.contains("Snow") || pointsHourly.get(i).temperature<=32) {
+                percipIcons[percipLabelIndex].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snowflake.png"))));
+            }
+            else {
+                percipIcons[percipLabelIndex].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/droplet.png"))));
+
+            }
             timeLabelIndex++;
             tempLabelIndex++;
             percipLabelIndex++;
