@@ -103,7 +103,7 @@ public class Controller implements  Initializable{
     public void setValuesTodayForecast() {
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
         ZoneId timeZone = ZoneId.of(MyWeatherAPI.timeZone);
-        time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mma")));
+        time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mm a")));
         temperature.setText(pointsHourly.get(0).temperature +"F");
         city.setText(MyWeatherAPI.cityName);
         weather.setText(pointsHourly.get(0).shortForecast);
