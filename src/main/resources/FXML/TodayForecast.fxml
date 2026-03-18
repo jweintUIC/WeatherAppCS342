@@ -21,12 +21,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.6364197731018066" green="0.42592594027519226" blue="1.0" />
+                        <Color red="0.46832358837127686" green="0.6768031120300293" blue="0.8157894611358643" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.03519999980926514" green="0.7888345122337341" blue="0.8799999952316284" />
+                        <Color red="0.4111842215061188" green="0.3691520392894745" blue="0.7894737124443054" />
                      </color>
                   </Stop>
                </stops>
@@ -117,7 +117,7 @@
                   </VBox>
                </children></HBox>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="112.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="380.0" />
-            <HBox prefHeight="100.0" prefWidth="378.0" style="-fx-background-radius: 15; -fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #6783a3;">
+            <HBox prefHeight="100.0" prefWidth="378.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
