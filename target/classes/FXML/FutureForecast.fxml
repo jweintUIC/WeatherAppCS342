@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
@@ -14,6 +15,40 @@
             <Font size="60.0" />
          </font></Label>
       <Rectangle fx:id="loadingRectangleFuture" arcHeight="5.0" arcWidth="5.0" fill="#e9e9e9" height="780.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="380.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="780.0" strokeType="INSIDE" width="381.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.46666666865348816" green="0.6784313917160034" blue="0.8156862854957581" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4117647111415863" green="0.3686274588108063" blue="0.7882353067398071" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.46666666865348816" green="0.6784313917160034" blue="0.8156862854957581" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="790.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0">
@@ -53,11 +88,11 @@
                   <Insets left="15.0" right="15.0" top="15.0" />
                </padding>
             </HBox>
-            <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" style="-fx-background-color: #9b6b6b;" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0" style="-fx-background-color: #9b6b6b;">
+            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="327.0" prefWidth="130.0">
                      <children>
@@ -187,7 +222,7 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0" style="-fx-background-color: #9b6b6b;">
+            <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
