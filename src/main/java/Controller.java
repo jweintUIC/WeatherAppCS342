@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import HourlyWeather.HourlyPeriod;
 import javafx.application.Platform;
 import weather.Period;
@@ -18,9 +19,6 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.ArrayList;
 
 public class Controller implements  Initializable{
 
@@ -84,6 +82,23 @@ public class Controller implements  Initializable{
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
+    //Function made to change the weather icon in Scene 1
+    private void setWeatherImage(String shortForecast) {
+        if (shortForecast.contains("Sunny")) {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/sun-light.png"))));
+        } else if (shortForecast.contains("Cloudy")) {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud.png"))));
+        } else if (shortForecast.contains("Rain")) {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/rain.png"))));
+        } else if (shortForecast.contains("Snow")) {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow.png"))));
+        } else if (shortForecast.contains("Thunderstorm")) {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/thunderstorm.png"))));
+        } else {
+            S1WeatherImage.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud-sunny.png"))));
+        }
+    }
+
     //Function made to set Scene 1 Values
     public void setValuesTodayForecast() {
         ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
@@ -92,33 +107,16 @@ public class Controller implements  Initializable{
         temperature.setText(pointsHourly.get(0).temperature +"F");
         city.setText(MyWeatherAPI.cityName);
         weather.setText(pointsHourly.get(0).shortForecast);
-        rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+        rainChance.setText("Chance of precipitation: " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
+        setWeatherImage(pointsHourly.get(0).shortForecast);
         setHourlyLabels(pointsHourly);
-        if (pointsHourly.get(0).shortForecast.contains("Sunny")) {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/sun-light.png")));
-        }
-        else if (pointsHourly.get(0).shortForecast.contains("Cloudy")) {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud.png")));
-        }
-        else if (pointsHourly.get(0).shortForecast.contains("Rain")) {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/rain.png")));
-        }
-        else if (pointsHourly.get(0).shortForecast.contains("Snow")) {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow.png")));
-        }
-        else if (pointsHourly.get(0).shortForecast.contains("Thunderstorm")) {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/thunderstorm.png")));
-        }
-        else {
-            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud-sunny.png")));
-        }
     }
 
     //Function made to set Scene 2 Values
     public void setTextFutureForecast() {
         ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
         int startPoint;
-        if (newCity.get(0).isDaytime == false) {
+        if (!newCity.get(0).isDaytime) {
             startPoint = 1;
         } else {
             startPoint = 2;
