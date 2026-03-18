@@ -148,6 +148,7 @@ public class Controller implements  Initializable{
         for (Label l : visiLabels) {
             l.setVisible(setVisi);
         }
+        S1WeatherImage.setVisible(setVisi);
     }
 
     //Function made to change visibilities upon nullCity in Scene 2
