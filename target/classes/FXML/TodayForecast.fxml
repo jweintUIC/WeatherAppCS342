@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Label fx:id="loadingLabel" alignment="CENTER" layoutX="64.0" layoutY="346.0" text="Loading..." textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -133,14 +140,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR1Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationOne" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -161,14 +168,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR2Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationTwo" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -189,14 +196,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR3Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationThree" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -217,14 +224,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR4Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationFour" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -245,14 +252,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR5Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationFive" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -273,14 +280,14 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="HR6Icon" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/droplet.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="dailyPercipitationSix" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
