@@ -65,6 +65,9 @@ public class Controller implements  Initializable{
     private Label dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree, dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix;
 
     @FXML
+    private Label dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree, dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix;
+
+    @FXML
     private Label loadingLabel;
 
     @FXML
@@ -185,6 +188,8 @@ public class Controller implements  Initializable{
                 dailyTimeFour, dailyTimeFive, dailyTimeSix};
         Label[] tempLabels = {dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
                 dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix};
+        Label[] percipLabels = {dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
+                dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix};
 
         ZoneId timeZone;
         if (MyWeatherAPI.timeZone != null) {
@@ -206,13 +211,16 @@ public class Controller implements  Initializable{
         int loopFinal = alignedIndex + 15;
         int timeLabelIndex = 0;
         int tempLabelIndex = 0;
+        int percipLabelIndex = 0;
 
         for (int i = alignedIndex; i <= loopFinal; i+=3) {
             int pointsHour = pointsHourly.get(i).startTime.toInstant().atZone(ZoneId.of(MyWeatherAPI.timeZone)).getHour();
             timeLabels[timeLabelIndex].setText(formatTimeLabelText(pointsHour));
             tempLabels[tempLabelIndex].setText(pointsHourly.get(i).temperature + "F");
+            percipLabels[percipLabelIndex].setText(pointsHourly.get(i).probabilityOfPrecipitation.value + "%");
             timeLabelIndex++;
             tempLabelIndex++;
+            percipLabelIndex++;
         }
     }
 
