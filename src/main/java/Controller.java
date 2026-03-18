@@ -86,7 +86,7 @@ public class Controller implements  Initializable{
     private ImageView HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon;
 
     @FXML
-    private ImageView FuturePercipIconOne, FuturePercipIconTwo, FuturePercipIconThree, FuturePercipIconFour, FuturePercipIconFive, FuturePercipIconSix;
+    private ImageView FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree, FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix;
 
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
@@ -135,6 +135,8 @@ public class Controller implements  Initializable{
         Label[] nightLabels =   {FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6};
         Label[] windLabels =    {FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6};
         Label[] chanceLabels =  {FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
+        ImageView[] precipIcons = {FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree,
+                FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix};
 
         FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
         ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -144,6 +146,13 @@ public class Controller implements  Initializable{
             nightLabels[i].setText(newCity.get(startPoint + i * 2 + 1).temperature + "F");
             windLabels[i].setText(newCity.get(startPoint +i*2).windSpeed+" "+newCity.get(startPoint +i*2).windDirection);
             chanceLabels[i].setText(newCity.get(startPoint + i * 2).probabilityOfPrecipitation.value + "%");
+            if (newCity.get(i).shortForecast.contains("Snow") || newCity.get(i).temperature<=32) {
+                precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snowflake.png"))));
+            }
+            else {
+                precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/droplet.png"))));
+
+            }
         }
     }
 
