@@ -85,6 +85,9 @@ public class Controller implements  Initializable{
     @FXML //Percip chance icons for hourly
     private ImageView HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon;
 
+    @FXML
+    private ImageView FuturePercipIconOne, FuturePercipIconTwo, FuturePercipIconThree, FuturePercipIconFour, FuturePercipIconFive, FuturePercipIconSix;
+
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 

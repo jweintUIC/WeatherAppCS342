@@ -126,7 +126,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconOne" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -167,7 +167,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconTwo" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -208,7 +208,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconThree" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -256,7 +256,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconFour" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -297,7 +297,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconFive" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -338,7 +338,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePercipIconSix" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
