@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Label fx:id="loadingLabel" alignment="CENTER" layoutX="64.0" layoutY="346.0" text="Loading..." textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -21,12 +28,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.6716617941856384" green="0.8277066946029663" blue="0.9736841917037964" />
+                        <Color red="0.46832358837127686" green="0.6768031120300293" blue="0.8157894611358643" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.23999999463558197" green="0.3861103057861328" blue="0.800000011920929" />
+                        <Color red="0.4111842215061188" green="0.3691520392894745" blue="0.7894737124443054" />
                      </color>
                   </Stop>
                </stops>
@@ -89,9 +96,9 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="92.0" prefWidth="326.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="S1WeatherImage" fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/cloudy.png" />
+                                    <Image url="@Images/WeatherIcons/cloud-sunny.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="temperature" text="Temp" textFill="WHITE">
@@ -117,7 +124,7 @@
                   </VBox>
                </children></HBox>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="112.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="380.0" />
-            <HBox prefHeight="100.0" prefWidth="378.0" style="-fx-background-radius: 15; -fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-color: #6783a3;">
+            <HBox prefHeight="100.0" prefWidth="378.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>

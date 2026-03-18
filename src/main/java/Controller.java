@@ -16,9 +16,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import java.util.ArrayList;
 
 public class Controller implements  Initializable{
@@ -77,6 +78,9 @@ public class Controller implements  Initializable{
     @FXML
     private Rectangle loadingRectangleFuture;
 
+    @FXML //Weather Icon in Scene 1
+    private ImageView S1WeatherImage;
+
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
@@ -90,6 +94,24 @@ public class Controller implements  Initializable{
         weather.setText(pointsHourly.get(0).shortForecast);
         rainChance.setText("The chance of rain is " + String.valueOf(pointsHourly.get(0).probabilityOfPrecipitation.value) + "%");
         setHourlyLabels(pointsHourly);
+        if (pointsHourly.get(0).shortForecast.contains("Sunny")) {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/sun-light.png")));
+        }
+        else if (pointsHourly.get(0).shortForecast.contains("Cloudy")) {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud.png")));
+        }
+        else if (pointsHourly.get(0).shortForecast.contains("Rain")) {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/rain.png")));
+        }
+        else if (pointsHourly.get(0).shortForecast.contains("Snow")) {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow.png")));
+        }
+        else if (pointsHourly.get(0).shortForecast.contains("Thunderstorm")) {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/thunderstorm.png")));
+        }
+        else {
+            S1WeatherImage.setImage(new Image(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud-sunny.png")));
+        }
     }
 
     //Function made to set Scene 2 Values
