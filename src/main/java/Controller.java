@@ -162,11 +162,16 @@ public class Controller implements  Initializable{
                 dailyTimeOne, dailyTimeTwo, dailyTimeThree,
                 dailyTimeFour, dailyTimeFive, dailyTimeSix,
                 dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
-                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time};
+                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time,
+                dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
+                dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix};
         for (Label l : visiLabels) {
             l.setVisible(setVisi);
         }
-        S1WeatherImage.setVisible(setVisi);
+        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon};
+        for (ImageView I : visiImageView) {
+            I.setVisible(setVisi);
+        }
     }
 
     //Function made to change visibilities upon nullCity in Scene 2
