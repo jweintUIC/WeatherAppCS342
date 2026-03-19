@@ -51,7 +51,19 @@
       </Rectangle>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="790.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0" />
+            <VBox prefHeight="146.0" prefWidth="381.0" style="-fx-spacing: 10;">
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/arrowleft.png" />
+                     </image>
+                  </ImageView>
+                  <Label text=" Today's Forecast" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
             <HBox prefHeight="64.0" prefWidth="375.0">
                <children>
                   <ImageView fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
@@ -336,6 +348,9 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSceneToday" prefHeight="100.0" prefWidth="106.0" styleClass="buttonRight" stylesheets="@Styling.css" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="-3.0" layoutY="-7.0" mnemonicParsing="false" onAction="#switchSceneToday" opacity="0.5" prefHeight="138.0" prefWidth="127.0">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

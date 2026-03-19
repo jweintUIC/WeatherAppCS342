@@ -12,8 +12,7 @@
     -fx-spacing: 10;
 }
 
-.buttonRight{
-    -fx-background-image: url("Images/wind.png");
-    -fx-background-size: cover;
-    -fx-background-color: transparent;
+.hourlyVbox{
+    -fx-spacing: 10;
 }
+
