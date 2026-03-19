@@ -51,32 +51,7 @@
       </Rectangle>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="790.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0">
-               <children>
-                  <VBox prefHeight="164.0" prefWidth="381.0">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="96.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Images/arrowleft.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Today's" textFill="WHITE" textOverrun="CLIP">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Forecast" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="79.0" />
             <HBox prefHeight="64.0" prefWidth="375.0">
                <children>
                   <ImageView fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
@@ -361,6 +336,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSceneToday" prefHeight="100.0" prefWidth="106.0" style="-fx-background-image: url('Images/wind.png')" styleClass="buttonRight" stylesheets="@Styling.css" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSceneToday" prefHeight="100.0" prefWidth="106.0" styleClass="buttonRight" stylesheets="@Styling.css" />
    </children>
 </AnchorPane>

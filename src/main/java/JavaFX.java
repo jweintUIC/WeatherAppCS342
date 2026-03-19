@@ -102,7 +102,7 @@ public class JavaFX extends Application {
 			Parent root = FXMLLoader.load(getClass()
 					.getResource("/FXML/TodayForecast.fxml"));
 
-			primaryStage.setTitle("342 Prject 2 Weather App");
+			primaryStage.setTitle("342 Project 2 Weather App");
 			Scene s1 = new Scene(root, 380,780);
 
 

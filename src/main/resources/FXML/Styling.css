@@ -13,5 +13,7 @@
 }
 
 .buttonRight{
-    -fx-background-image: "/wind.png";);
+    -fx-background-image: url("Images/wind.png");
+    -fx-background-size: cover;
+    -fx-background-color: transparent;
 }
