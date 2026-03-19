@@ -3,3 +3,7 @@
     -fx-font-family: "Roboto Thin";
     -fx-font-weight: bold;
 }
+
+.futureHbox{
+    -fx-spacing: 10;
+}

@@ -100,7 +100,7 @@
                            <font>
                               <Font name="Roboto Thin" size="12.0" />
                            </font></Label>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -109,7 +109,7 @@
                               <Label fx:id="FTRMT1" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -118,7 +118,7 @@
                               <Label fx:id="FTRNT1" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindOne" fitHeight="77.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -127,7 +127,7 @@
                               <Label fx:id="FTRWS1" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FuturePrecipIconOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -141,7 +141,7 @@
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
                         <Label fx:id="FTRD2" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -150,7 +150,7 @@
                               <Label fx:id="FTRMT2" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -159,7 +159,7 @@
                               <Label fx:id="FTRNT2" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -168,7 +168,7 @@
                               <Label fx:id="FTRWS2" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FuturePrecipIconTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -182,7 +182,7 @@
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
                         <Label fx:id="FTRD3" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -191,7 +191,7 @@
                               <Label fx:id="FTRMT3" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -200,7 +200,7 @@
                               <Label fx:id="FTRNT3" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -209,7 +209,7 @@
                               <Label fx:id="FTRWS3" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FuturePrecipIconThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -225,12 +225,13 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="40.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="356.0" />
             <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
                         <Label fx:id="FTRD4" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -239,7 +240,7 @@
                               <Label fx:id="FTRMT4" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -248,7 +249,7 @@
                               <Label fx:id="FTRNT4" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -257,7 +258,7 @@
                               <Label fx:id="FTRWS4" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FuturePrecipIconFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -271,7 +272,7 @@
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
                         <Label fx:id="FTRD5" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -280,7 +281,7 @@
                               <Label fx:id="FTRMT5" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -289,7 +290,7 @@
                               <Label fx:id="FTRNT5" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -298,7 +299,7 @@
                               <Label fx:id="FTRWS5" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FuturePrecipIconFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -312,7 +313,7 @@
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
                         <Label fx:id="FTRD6" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -321,7 +322,7 @@
                               <Label fx:id="FTRMT6" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureNightTempSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -330,7 +331,7 @@
                               <Label fx:id="FTRNT6" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureWindSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -339,9 +340,9 @@
                               <Label fx:id="FTRWS6" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconSix" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>

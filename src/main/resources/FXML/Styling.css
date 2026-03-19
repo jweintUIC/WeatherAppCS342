@@ -4,6 +4,6 @@
     -fx-font-weight: bold;
 }
 
-.futureImageIcons{
-    -fx-fit-to-width: 40;
+.futureHbox{
+    -fx-spacing: 10;
 }
