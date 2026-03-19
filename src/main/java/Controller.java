@@ -156,7 +156,7 @@ public class Controller implements  Initializable{
             windLabels[i].setText(newCity.get(startPoint +i*2).windSpeed+" "+newCity.get(startPoint +i*2).windDirection);
             chanceLabels[i].setText(newCity.get(startPoint + i * 2).probabilityOfPrecipitation.value + "%");
             if (newCity.get(i).shortForecast.contains("Snow") || newCity.get(i).temperature<=32) {
-                precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snowflake.png"))));
+                precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow-flake.png"))));
             }
             else {
                 precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/droplet.png"))));
@@ -266,7 +266,7 @@ public class Controller implements  Initializable{
             tempLabels[tempLabelIndex].setText(pointsHourly.get(i).temperature + "F");
             percipLabels[percipLabelIndex].setText(pointsHourly.get(i).probabilityOfPrecipitation.value + "%");
             if (pointsHourly.get(i).shortForecast.contains("Snow") || pointsHourly.get(i).temperature<=32) {
-                percipIcons[percipLabelIndex].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snowflake.png"))));
+                percipIcons[percipLabelIndex].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow-flake.png"))));
             }
             else {
                 percipIcons[percipLabelIndex].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/droplet.png"))));
