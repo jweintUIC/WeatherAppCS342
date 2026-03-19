@@ -99,7 +99,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -108,7 +111,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -117,7 +123,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -126,7 +135,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
@@ -140,7 +152,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -149,7 +164,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -158,7 +176,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -167,7 +188,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
@@ -181,7 +205,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -190,7 +217,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -199,7 +229,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -208,7 +241,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
@@ -230,7 +266,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -239,7 +278,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -248,7 +290,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS4" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS4" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -257,7 +302,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
@@ -271,7 +319,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -280,7 +331,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -289,7 +343,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -298,7 +355,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>
@@ -312,7 +372,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -321,7 +384,10 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -330,7 +396,10 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -339,7 +408,10 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Light" size="12.0" />
+                                 </font></Label>
                            </children>
                         </HBox>
                      </children>

@@ -257,8 +257,7 @@ public class Controller implements  Initializable{
                 FutureNightTempOne, FutureNightTempTwo, FutureNightTempThree,
                 FutureNightTempFour, FutureNightTempFive, FutureNightTempSix,
                 FutureWindOne, FutureWindTwo, FutureWindThree,
-                FutureWindFour, FutureWindFive, FutureWindSix,
-                arrow};
+                FutureWindFour, FutureWindFive, FutureWindSix};
 
         for (Label l : visiLabelsFuture) {
             l.setVisible(setVisi);
