@@ -14,6 +14,7 @@ import HourlyWeather.HourlyRoot;
 
 public class MyWeatherAPI extends WeatherAPI {
     //this is up here so it can be accessed outside the class
+    //part of the proxy design as MyWeather stores all this info for us
     public static String cityName = "";
     public static String timeZone = "";
     public static ArrayList<Period> lastForecast = null;
