@@ -66,7 +66,7 @@
             </VBox>
             <HBox prefHeight="64.0" prefWidth="375.0" style="-fx-spacing: 15;">
                <children>
-                  <ImageView fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="searchIcon" fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/WeatherIcons/search.png" />
                      </image>

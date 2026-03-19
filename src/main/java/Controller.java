@@ -97,6 +97,9 @@ public class Controller implements  Initializable{
     @FXML
     private ImageView FutureWindOne, FutureWindTwo, FutureWindThree, FutureWindFour, FutureWindFive, FutureWindSix;
 
+    @FXML
+    private ImageView searchIcon;
+
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
 
@@ -229,6 +232,7 @@ public class Controller implements  Initializable{
         for (ImageView I : visiImageView) {
             I.setVisible(setVisi);
         }
+
     }
 
     //Used to format hour in Time Labels. Function made for readability and preventing long if statements
@@ -311,6 +315,7 @@ public class Controller implements  Initializable{
     public void switchSceneFuture(ActionEvent e) throws IOException {
         loadingRectangle.toFront();
         loadingLabel.toFront();
+        setVisibleUponSearch(false);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -336,6 +341,7 @@ public class Controller implements  Initializable{
     public void switchSceneToday(ActionEvent e) throws IOException  {
         loadingRectangleFuture.toFront();
         loadingLabelFuture.toFront();
+        setFutureVisibility(false);
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
