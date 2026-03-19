@@ -122,7 +122,7 @@ public class Controller implements  Initializable{
         if (MyWeatherAPI.lastForecastHourly == null) {
             MyWeatherAPI.lastForecastHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
         }
-        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
+        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly; //avoids extra API call when switching scenes
         ZoneId timeZone = ZoneId.of(MyWeatherAPI.timeZone);
         time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mm a")));
         temperature.setText(pointsHourly.get(0).temperature +"F");
@@ -138,7 +138,7 @@ public class Controller implements  Initializable{
         if (MyWeatherAPI.lastForecast == null) {
             MyWeatherAPI.lastForecast = MyWeatherAPI.getPointForecast(currentCityString);
         }
-        ArrayList<Period> newCity = MyWeatherAPI.lastForecast;
+        ArrayList<Period> newCity = MyWeatherAPI.lastForecast; //avoids extra API call when switching scenes
         int startPoint;
         if (!newCity.get(0).isDaytime) {
             startPoint = 1;
@@ -367,7 +367,7 @@ public class Controller implements  Initializable{
                 setVisibleUponSearch(false);
 			} else {
                 currentCityString = cityString;
-                MyWeatherAPI.lastForecast = null;
+                MyWeatherAPI.lastForecast = null; //this is done so search makes a new API call
                 MyWeatherAPI.lastForecastHourly = null;
                 setVisibleUponSearch(true);
                 setValuesTodayForecast();
@@ -384,7 +384,7 @@ public class Controller implements  Initializable{
             return;
         }
         currentCityString = cityString;
-        MyWeatherAPI.lastForecast = null;
+        MyWeatherAPI.lastForecast = null; //this is done so search makes a new API call
         MyWeatherAPI.lastForecastHourly = null;
         setFutureVisibility(true);
         if (FTRD1!= null) { //checks if in Scene 2
