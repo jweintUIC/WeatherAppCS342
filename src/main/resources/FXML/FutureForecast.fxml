@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Label fx:id="loadingLabelFuture" alignment="CENTER" contentDisplay="CENTER" layoutX="-41.0" layoutY="347.0" text="Loading..." textFill="WHITE" translateX="125.0">
          <font>
@@ -97,16 +90,19 @@
             </HBox>
             <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font></Label>
             <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="327.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD1" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD1" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Thin" size="12.0" />
+                           </font></Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempOne" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -115,7 +111,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempOne" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -124,7 +120,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindOne" fitHeight="77.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindOne" fitHeight="77.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
@@ -133,7 +129,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconOne" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconOne" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -144,10 +140,10 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD2" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD2" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempTwo" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -156,7 +152,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempTwo" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -165,7 +161,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindTwo" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
@@ -174,7 +170,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconTwo" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -185,10 +181,10 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD3" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD3" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempThree" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -197,7 +193,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempThree" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -206,7 +202,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindThree" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
@@ -215,7 +211,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconThree" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -233,10 +229,10 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD4" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD4" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempFour" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -245,7 +241,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempFour" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -254,7 +250,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindFour" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
@@ -263,7 +259,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconFour" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -274,10 +270,10 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD5" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD5" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempFive" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -286,7 +282,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempFive" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -295,7 +291,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindFive" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
@@ -304,7 +300,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FuturePrecipIconFive" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FuturePrecipIconFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
@@ -315,10 +311,10 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD6" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD6" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureDayTempSix" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureDayTempSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
@@ -327,7 +323,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureNightTempSix" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureNightTempSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
@@ -336,7 +332,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="FutureWindSix" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="FutureWindSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>

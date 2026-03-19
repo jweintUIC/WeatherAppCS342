@@ -1,3 +1,9 @@
-.labelFutureForecastDay{
+.labelHeaderText{
     -fx-font-size: 16px;
+    -fx-font-family: "Roboto Thin";
+    -fx-font-weight: bold;
+}
+
+.futureImageIcons{
+    -fx-fit-to-width: 40;
 }
