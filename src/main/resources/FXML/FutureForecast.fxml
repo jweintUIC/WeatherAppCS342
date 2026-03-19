@@ -89,7 +89,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="327.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD1" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="FTRD1" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true">
                            <font>
                               <Font name="Roboto Thin" size="12.0" />
                            </font></Label>
@@ -133,7 +133,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD2" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD2" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempTwo" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -174,7 +174,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD3" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD3" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempThree" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -223,7 +223,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD4" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD4" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempFour" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -264,7 +264,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD5" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD5" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempFive" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -305,7 +305,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Label fx:id="FTRD6" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="FTRD6" styleClass="labelHeaderText" stylesheets="@Styling.css" text="Day" textAlignment="CENTER" textFill="WHITE" underline="true" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
                            <children>
                               <ImageView fx:id="FutureDayTempSix" fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
