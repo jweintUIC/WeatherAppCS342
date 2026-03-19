@@ -43,12 +43,12 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="84.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="arrow" fitHeight="84.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Images/arrow.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Future Forecast" textFill="WHITE" textOverrun="CLIP">
+                        <Label fx:id="buttonText" alignment="CENTER" prefHeight="40.0" prefWidth="126.0" text="Future Forecast" textFill="WHITE" textOverrun="CLIP">
                            <font>
                               <Font name="SansSerif Bold" size="16.0" />
                            </font>
@@ -293,6 +293,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="250.0" mnemonicParsing="false" onAction="#switchSceneFuture" opacity="0.5" prefHeight="138.0" prefWidth="130.0" />
+      <Button fx:id="switchSceneButton" alignment="BOTTOM_RIGHT" layoutX="250.0" mnemonicParsing="false" onAction="#switchSceneFuture" opacity="0.5" prefHeight="138.0" prefWidth="130.0" />
    </children>
 </AnchorPane>

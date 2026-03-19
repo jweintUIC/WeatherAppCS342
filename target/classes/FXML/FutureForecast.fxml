@@ -53,12 +53,12 @@
          <children>
             <VBox prefHeight="146.0" prefWidth="381.0" style="-fx-spacing: 10;">
                <children>
-                  <ImageView fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="arrow" fitHeight="96.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Images/arrowleft.png" />
                      </image>
                   </ImageView>
-                  <Label text=" Today's Forecast" textFill="WHITE">
+                  <Label fx:id="buttonText" text=" Today's Forecast" textFill="WHITE">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />
                      </font></Label>
@@ -348,7 +348,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="-3.0" layoutY="-7.0" mnemonicParsing="false" onAction="#switchSceneToday" opacity="0.5" prefHeight="138.0" prefWidth="127.0">
+      <Button fx:id="switchSceneButton" alignment="BOTTOM_RIGHT" layoutX="-3.0" layoutY="-7.0" mnemonicParsing="false" onAction="#switchSceneToday" opacity="0.5" prefHeight="138.0" prefWidth="127.0">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font></Button>

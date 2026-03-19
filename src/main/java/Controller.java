@@ -8,6 +8,7 @@ import java.util.*;
 
 import HourlyWeather.HourlyPeriod;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import weather.Period;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,6 +100,15 @@ public class Controller implements  Initializable{
 
     @FXML
     private ImageView searchIcon;
+
+    @FXML
+    private Button switchSceneButton;
+
+    @FXML
+    private ImageView arrow;
+
+    @FXML
+    private Label buttonText;
 
     //Used to show current city. Defaults to Chicago
     public static String currentCityString = "Chicago";
@@ -216,9 +226,9 @@ public class Controller implements  Initializable{
                 dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time,
                 dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
                 dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix,
-                city};
+                city, buttonText};
 
-        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon, searchIcon};
+        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon, searchIcon, arrow};
 
         for (Label l : visiLabels) {
             l.setVisible(false);
@@ -228,6 +238,7 @@ public class Controller implements  Initializable{
             I.setVisible(false);
         }
 
+        switchSceneButton.setVisible(false);
         cityInput.setVisible(false);
     }
 
@@ -246,7 +257,8 @@ public class Controller implements  Initializable{
                 FutureNightTempOne, FutureNightTempTwo, FutureNightTempThree,
                 FutureNightTempFour, FutureNightTempFive, FutureNightTempSix,
                 FutureWindOne, FutureWindTwo, FutureWindThree,
-                FutureWindFour, FutureWindFive, FutureWindSix};
+                FutureWindFour, FutureWindFive, FutureWindSix,
+                arrow};
 
         for (Label l : visiLabelsFuture) {
             l.setVisible(setVisi);
@@ -264,7 +276,7 @@ public class Controller implements  Initializable{
                 FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6,
                 FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6,
                 FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6,
-                FtrForecastCity};
+                FtrForecastCity, buttonText};
 
         ImageView[] visiImageView = {FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree,
                 FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix,
@@ -274,7 +286,7 @@ public class Controller implements  Initializable{
                 FutureNightTempFour, FutureNightTempFive, FutureNightTempSix,
                 FutureWindOne, FutureWindTwo, FutureWindThree,
                 FutureWindFour, FutureWindFive, FutureWindSix,
-                searchIcon};
+                searchIcon, arrow};
 
         for (Label l : visiLabelsFuture) {
             l.setVisible(false);
@@ -284,6 +296,7 @@ public class Controller implements  Initializable{
             I.setVisible(false);
         }
 
+        switchSceneButton.setVisible(false);
         cityInput.setVisible(false);
     }
 
