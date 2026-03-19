@@ -101,7 +101,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempOne" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT1" text="55F" textFill="WHITE" />
                            </children>
@@ -110,7 +110,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempOne" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT1" text="55F" textFill="WHITE" />
                            </children>
@@ -142,7 +142,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempTwo" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT2" text="55F" textFill="WHITE" />
                            </children>
@@ -151,7 +151,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempTwo" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT2" text="55F" textFill="WHITE" />
                            </children>
@@ -183,7 +183,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempThree" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT3" text="55F" textFill="WHITE" />
                            </children>
@@ -192,7 +192,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempThree" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT3" text="55F" textFill="WHITE" />
                            </children>
@@ -231,7 +231,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempFour" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT4" text="55F" textFill="WHITE" />
                            </children>
@@ -240,7 +240,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempFour" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT4" text="55F" textFill="WHITE" />
                            </children>
@@ -272,7 +272,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempFive" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT5" text="55F" textFill="WHITE" />
                            </children>
@@ -281,7 +281,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempFive" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT5" text="55F" textFill="WHITE" />
                            </children>
@@ -313,7 +313,7 @@
                            <children>
                               <ImageView fx:id="FutureDayTempSix" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/sun.png" />
+                                    <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRMT6" text="55F" textFill="WHITE" />
                            </children>
@@ -322,7 +322,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempSix" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT6" text="55F" textFill="WHITE" />
                            </children>
