@@ -367,6 +367,8 @@ public class Controller implements  Initializable{
                 setVisibleUponSearch(false);
 			} else {
                 currentCityString = cityString;
+                MyWeatherAPI.lastForecast = null;
+                MyWeatherAPI.lastForecastHourly = null;
                 setVisibleUponSearch(true);
                 setValuesTodayForecast();
             }
@@ -382,6 +384,8 @@ public class Controller implements  Initializable{
             return;
         }
         currentCityString = cityString;
+        MyWeatherAPI.lastForecast = null;
+        MyWeatherAPI.lastForecastHourly = null;
         setFutureVisibility(true);
         if (FTRD1!= null) { //checks if in Scene 2
             setTextFutureForecast();
