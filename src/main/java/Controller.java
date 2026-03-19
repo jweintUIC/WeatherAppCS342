@@ -119,7 +119,10 @@ public class Controller implements  Initializable{
 
     //Function made to set Scene 1 Values
     public void setValuesTodayForecast() {
-        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
+        if (MyWeatherAPI.lastForecastHourly == null) {
+            MyWeatherAPI.lastForecastHourly = MyWeatherAPI.getPointForecastHourly(currentCityString);
+        }
+        ArrayList<HourlyPeriod> pointsHourly = MyWeatherAPI.lastForecastHourly;
         ZoneId timeZone = ZoneId.of(MyWeatherAPI.timeZone);
         time.setText(LocalTime.now(timeZone).format(DateTimeFormatter.ofPattern("h:mm a")));
         temperature.setText(pointsHourly.get(0).temperature +"F");
@@ -132,7 +135,10 @@ public class Controller implements  Initializable{
 
     //Function made to set Scene 2 Values
     public void setTextFutureForecast() {
-        ArrayList<Period> newCity = MyWeatherAPI.getPointForecast(currentCityString);
+        if (MyWeatherAPI.lastForecast == null) {
+            MyWeatherAPI.lastForecast = MyWeatherAPI.getPointForecast(currentCityString);
+        }
+        ArrayList<Period> newCity = MyWeatherAPI.lastForecast;
         int startPoint;
         if (!newCity.get(0).isDaytime) {
             startPoint = 1;
