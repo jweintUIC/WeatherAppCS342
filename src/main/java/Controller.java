@@ -157,7 +157,7 @@ public class Controller implements  Initializable{
                 FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix};
         ImageView[] dayIcons = {FutureDayTempOne, FutureDayTempTwo, FutureDayTempThree, FutureDayTempFour, FutureDayTempFive, FutureDayTempSix};
 
-        FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
+        FtrForecastCity.setText("6 Day Forecast for "+ MyWeatherAPI.cityName);
         ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
         for (int i = 0; i < 6; i++) {
             dateLabels[i].setText(LocalDate.now(zone).plusDays(i+1).format(DateTimeFormatter.ofPattern("MMMM d")));
@@ -207,6 +207,29 @@ public class Controller implements  Initializable{
             I.setVisible(setVisi);
         }
     }
+    //Disables visibility during loading for visual clarity and feedback
+    public void toggleLoadingVisibilityToday() {
+        Label[] visiLabels = {temperature, weather, rainChance,
+                dailyTimeOne, dailyTimeTwo, dailyTimeThree,
+                dailyTimeFour, dailyTimeFive, dailyTimeSix,
+                dailyTemperatureOne, dailyTemperatureTwo, dailyTemperatureThree,
+                dailyTemperatureFour, dailyTemperatureFive, dailyTemperatureSix, time,
+                dailyPercipitationOne, dailyPercipitationTwo, dailyPercipitationThree,
+                dailyPercipitationFour, dailyPercipitationFive, dailyPercipitationSix,
+                city};
+
+        ImageView[] visiImageView = {S1WeatherImage, HR1Icon, HR2Icon, HR3Icon, HR4Icon, HR5Icon, HR6Icon, searchIcon};
+
+        for (Label l : visiLabels) {
+            l.setVisible(false);
+        }
+
+        for (ImageView I : visiImageView) {
+            I.setVisible(false);
+        }
+
+        cityInput.setVisible(false);
+    }
 
     //Function made to change visibilities upon nullCity in Scene 2
     private void setFutureVisibility(boolean setVisi) {
@@ -232,7 +255,36 @@ public class Controller implements  Initializable{
         for (ImageView I : visiImageView) {
             I.setVisible(setVisi);
         }
+    }
 
+    //Disables visibility during loading for visual clarity and feedback
+    private void toggleLoadingVisibilityFuture() {
+        Label[] visiLabelsFuture = {FTRD1,  FTRD2,  FTRD3,  FTRD4,  FTRD5,  FTRD6,
+                FTRMT1, FTRMT2, FTRMT3, FTRMT4, FTRMT5, FTRMT6,
+                FTRNT1, FTRNT2, FTRNT3, FTRNT4, FTRNT5, FTRNT6,
+                FTRWS1, FTRWS2, FTRWS3, FTRWS4, FTRWS5, FTRWS6,
+                FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6,
+                FtrForecastCity};
+
+        ImageView[] visiImageView = {FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree,
+                FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix,
+                FutureDayTempOne, FutureDayTempTwo, FutureDayTempThree,
+                FutureDayTempFour, FutureDayTempFive, FutureDayTempSix,
+                FutureNightTempOne, FutureNightTempTwo, FutureNightTempThree,
+                FutureNightTempFour, FutureNightTempFive, FutureNightTempSix,
+                FutureWindOne, FutureWindTwo, FutureWindThree,
+                FutureWindFour, FutureWindFive, FutureWindSix,
+                searchIcon};
+
+        for (Label l : visiLabelsFuture) {
+            l.setVisible(false);
+        }
+
+        for (ImageView I : visiImageView) {
+            I.setVisible(false);
+        }
+
+        cityInput.setVisible(false);
     }
 
     //Used to format hour in Time Labels. Function made for readability and preventing long if statements
@@ -315,7 +367,7 @@ public class Controller implements  Initializable{
     public void switchSceneFuture(ActionEvent e) throws IOException {
         loadingRectangle.toFront();
         loadingLabel.toFront();
-        setVisibleUponSearch(false);
+        toggleLoadingVisibilityToday();
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
@@ -341,7 +393,7 @@ public class Controller implements  Initializable{
     public void switchSceneToday(ActionEvent e) throws IOException  {
         loadingRectangleFuture.toFront();
         loadingLabelFuture.toFront();
-        setFutureVisibility(false);
+        toggleLoadingVisibilityFuture();
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
