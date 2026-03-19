@@ -20,32 +20,31 @@ public class MyWeatherAPI extends WeatherAPI {
     public static ArrayList<HourlyPeriod> lastForecastHourly = null;
 
     public static ArrayList<Period> getPointForecast(double lat, double lon) {
-
-        HttpRequest request = HttpRequest.newBuilder()
+        //second half of overloaded function used to find grid cords for original API call
+        HttpRequest request = HttpRequest.newBuilder() //request pointing to the points subURL of the NWS API
                 .uri(URI.create("https://api.weather.gov/points/" + lat + "," + lon))
                 .build();
         HttpResponse<String> response = null;
         try {
-
             response = HttpClient.newBuilder()
-                    .followRedirects(HttpClient.Redirect.ALWAYS)
+                    .followRedirects(HttpClient.Redirect.ALWAYS) //needed so this api call always works
                     .build()
                     .send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper om = new ObjectMapper();
             JsonNode root = om.readTree(response.body());
+            //finds grid cords needed for original API call
             String region = root.get("properties").get("gridId").asText();
             int gridX = root.get("properties").get("gridX").asInt();
             int gridY = root.get("properties").get("gridY").asInt();
 
             return WeatherAPI.getForecast(region, gridX, gridY);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
     public static ArrayList<Period> getPointForecast(String locationName) {
+        //first half of overloaded funcion used for geocoding
         try {
             HttpRequest geoRequest = HttpRequest.newBuilder()
                     .uri(URI.create("https://geocoding-api.open-meteo.com/v1/search?name=" +
@@ -60,7 +59,7 @@ public class MyWeatherAPI extends WeatherAPI {
             JsonNode results = root.get("results");
 
             JsonNode city = null;
-            int highestPop = -99;
+            int highestPop = -99; //random negative number so first city with pop overrides it
             //This is to make sure it is a US city as our weatherAPI only collects from the US
             for (JsonNode r : results) {
                 if (r.get("country_code").asText().equals("US")) {
@@ -68,14 +67,14 @@ public class MyWeatherAPI extends WeatherAPI {
                     if (r.has("population")) {
                         cityPop = r.get("population").asInt();
                     }
-                    if (cityPop > highestPop) {
+                    if (cityPop > highestPop) { //finds city with the highest population
                         highestPop = cityPop;
                         city = r;
                     }
                 }
             }
 
-            if (city == null) {
+            if (city == null) { //nullcheck
                 System.err.println("Failed to parse JSon");
                 return null;
             }
@@ -85,7 +84,7 @@ public class MyWeatherAPI extends WeatherAPI {
             timeZone = city.get("timezone").asText();
             double lat = city.get("latitude").asDouble();
             double lon = city.get("longitude").asDouble();
-
+            //now runs the other part of the overloaded function
             return getPointForecast(lat, lon);
 
         } catch (Exception e) {
