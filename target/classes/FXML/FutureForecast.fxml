@@ -240,7 +240,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempFour" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT4" text="55F" textFill="WHITE" />
                            </children>
@@ -281,7 +281,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempFive" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT5" text="55F" textFill="WHITE" />
                            </children>
@@ -322,7 +322,7 @@
                            <children>
                               <ImageView fx:id="FutureNightTempSix" fitHeight="77.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@Images/moon.png" />
+                                    <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
                               <Label fx:id="FTRNT6" text="55F" textFill="WHITE" />
                            </children>
