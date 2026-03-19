@@ -146,6 +146,7 @@ public class Controller implements  Initializable{
         Label[] chanceLabels =  {FTRRC1, FTRRC2, FTRRC3, FTRRC4, FTRRC5, FTRRC6};
         ImageView[] precipIcons = {FuturePrecipIconOne, FuturePrecipIconTwo, FuturePrecipIconThree,
                 FuturePrecipIconFour, FuturePrecipIconFive, FuturePrecipIconSix};
+        ImageView[] dayIcons = {FutureDayTempOne, FutureDayTempTwo, FutureDayTempThree, FutureDayTempFour, FutureDayTempFive, FutureDayTempSix};
 
         FtrForecastCity.setText("6 Day Future Forecast for "+ MyWeatherAPI.cityName);
         ZoneId zone = ZoneId.of(MyWeatherAPI.timeZone);
@@ -160,7 +161,19 @@ public class Controller implements  Initializable{
             }
             else {
                 precipIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/droplet.png"))));
-
+            }
+            if (newCity.get(i).shortForecast.contains("Sunny")) {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/sun-light.png"))));
+            } else if (newCity.get(i).shortForecast.contains("Cloudy")) {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud.png"))));
+            } else if (newCity.get(i).shortForecast.contains("Rain")) {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/rain.png"))));
+            } else if (newCity.get(i).shortForecast.contains("Snow")) {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/snow.png"))));
+            } else if (newCity.get(i).shortForecast.contains("Thunderstorm")) {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/thunderstorm.png"))));
+            } else {
+                dayIcons[i].setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/FXML/Images/WeatherIcons/cloud-sunny.png"))));
             }
         }
     }

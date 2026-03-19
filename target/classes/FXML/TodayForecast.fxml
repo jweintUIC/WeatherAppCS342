@@ -46,7 +46,7 @@
                      <children>
                         <ImageView fitHeight="96.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Images/arrow.png" />
+                              <Image url="@Images/arrow-right.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Future " textOverrun="CLIP">

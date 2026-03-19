@@ -58,19 +58,19 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <ImageView fitHeight="96.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="96.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Images/arrowleft.png" />
+                              <Image url="@Images/arrow-left.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Today's" textOverrun="CLIP">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Today's" textFill="WHITE" textOverrun="CLIP">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Forecast">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="120.0" text="Forecast" textFill="WHITE">
                            <font>
-                              <Font size="28.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
