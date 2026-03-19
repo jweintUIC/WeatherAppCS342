@@ -125,12 +125,12 @@
                      <children>
                         <Label id="dailyTimeOne" fx:id="dailyTimeOne" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureOne" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -142,7 +142,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationOne" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -153,12 +153,12 @@
                      <children>
                         <Label fx:id="dailyTimeTwo" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureTwo" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -170,7 +170,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationTwo" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -181,12 +181,12 @@
                      <children>
                         <Label fx:id="dailyTimeThree" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureThree" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -198,7 +198,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationThree" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -209,12 +209,12 @@
                      <children>
                         <Label fx:id="dailyTimeFour" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureFour" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -226,7 +226,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationFour" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -237,12 +237,12 @@
                      <children>
                         <Label fx:id="dailyTimeFive" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureFive" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -254,7 +254,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationFive" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
@@ -265,12 +265,12 @@
                      <children>
                         <Label fx:id="dailyTimeSix" text="Time" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label fx:id="dailyTemperatureSix" text="Label" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="17.0" prefWidth="63.0">
@@ -282,7 +282,7 @@
                               </ImageView>
                               <Label fx:id="dailyPercipitationSix" text="Label" textAlignment="CENTER" textFill="WHITE">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font name="Roboto Thin" size="12.0" />
                                  </font>
                               </Label>
                            </children>
