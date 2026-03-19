@@ -57,7 +57,7 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15;">
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 15;">
                <opaqueInsets>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </opaqueInsets>
@@ -70,7 +70,7 @@
                         <Image url="@Images/WeatherIcons/search.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="cityInput" alignment="CENTER" onAction="#searchMethod" opacity="0.75" prefHeight="25.0" prefWidth="283.0" promptText="Enter a City Name Here" />
+                  <TextField fx:id="cityInput" alignment="CENTER" onAction="#searchMethod" opacity="0.75" prefHeight="25.0" prefWidth="316.0" promptText="Enter a City Name Here" />
                </children></HBox>
             <HBox prefHeight="201.0" prefWidth="260.0">
                <VBox.margin>
