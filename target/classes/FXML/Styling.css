@@ -1,9 +1,17 @@
 .labelHeaderText{
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-font-family: "Roboto Thin";
-    -fx-font-weight: bold;
+}
+
+.labelDefaultText{
+    -fx-font-size: 12px;
+    -fx-font-family: "Roboto Thin";
 }
 
 .futureHbox{
     -fx-spacing: 10;
+}
+
+.buttonRight{
+    -fx-background-image: "/wind.png";);
 }

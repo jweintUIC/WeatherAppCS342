@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="780.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="720.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <Label fx:id="loadingLabelFuture" alignment="CENTER" contentDisplay="CENTER" layoutX="-41.0" layoutY="347.0" text="Loading..." textFill="WHITE" translateX="125.0">
          <font>
@@ -77,7 +77,7 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="64.0" prefWidth="375.0">
                <children>
                   <ImageView fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -93,10 +93,11 @@
                   <Insets left="15.0" right="15.0" top="15.0" />
                </padding>
             </HBox>
-            <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="FtrForecastCity" alignment="CENTER" prefHeight="17.0" prefWidth="381.0" text="Future Forcast for CITY" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Roboto Light" size="18.0" />
+                  <Font name="SansSerif Bold" size="16.0" />
                </font></Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="17.0" layoutX="10.0" layoutY="457.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="356.0" />
             <HBox alignment="CENTER" prefHeight="263.0" prefWidth="380.0" style="-fx-spacing: 10;">
                <children>
                   <VBox alignment="CENTER" prefHeight="327.0" prefWidth="130.0">
@@ -111,7 +112,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT1" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -120,7 +121,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT1" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -129,7 +130,7 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS1" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -138,7 +139,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC1" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC1" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -152,7 +153,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT2" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -161,7 +162,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT2" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -170,7 +171,7 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS2" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -179,7 +180,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC2" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC2" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -193,7 +194,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT3" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -202,7 +203,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT3" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -211,7 +212,7 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS3" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -220,7 +221,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC3" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC3" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -242,7 +243,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT4" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -251,7 +252,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT4" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -269,7 +270,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC4" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC4" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -283,7 +284,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT5" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -292,7 +293,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT5" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -301,7 +302,7 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS5" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -310,7 +311,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC5" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC5" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -324,7 +325,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/sun-light.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRMT6" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRMT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -333,7 +334,7 @@
                                  <image>
                                     <Image url="@Images/WeatherIcons/half-moon.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRNT6" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRNT6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -342,7 +343,7 @@
                                  <image>
                                     <Image url="@Images/wind.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRWS6" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                              <Label fx:id="FTRWS6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="futureHbox" stylesheets="@Styling.css">
@@ -351,7 +352,7 @@
                                  <image>
                                     <Image url="@Images/rain.png" />
                                  </image></ImageView>
-                              <Label fx:id="FTRRC6" text="55F" textFill="WHITE" />
+                              <Label fx:id="FTRRC6" styleClass="labelDefaultText" stylesheets="@Styling.css" text="55F" textFill="WHITE" />
                            </children>
                         </HBox>
                      </children>
@@ -360,6 +361,6 @@
             </HBox>
          </children>
       </VBox>
-      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSceneToday" prefHeight="164.0" prefWidth="106.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+      <Button alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchSceneToday" prefHeight="100.0" prefWidth="106.0" style="-fx-background-image: url('Images/wind.png')" styleClass="buttonRight" stylesheets="@Styling.css" />
    </children>
 </AnchorPane>
